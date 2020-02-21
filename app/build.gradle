@@ -19,6 +19,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        targetCompatibility = 1.8
+        sourceCompatibility = 1.8
+    }
 }
 
 dependencies {
@@ -33,4 +37,5 @@ dependencies {
     implementation 'com.android.support:design:28'
     implementation 'com.android.volley:volley:1.1.0'
     implementation 'com.spotify.android:auth:1.1.0'
+    implementation "com.google.code.gson:gson:2.8.5"
 }

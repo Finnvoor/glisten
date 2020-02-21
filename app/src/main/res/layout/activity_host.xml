@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HostActivity"
+    android:background="#000000"
+    android:orientation="vertical">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:padding="0dp">
+
+        <Button
+
+            android:id="@+id/btn_back"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:drawableTop="@drawable/backblue"
+            android:background="#000000"
+            android:text="Back"
+            android:textColor="#00B6BD"
+            android:layout_weight="1">
+
+        </Button>
+
+        <TextView
+            android:background="@drawable/border"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:text="Hello,Mike!"
+            android:textColor="#00B6BD"
+            android:gravity="center"
+            android:textSize="30dp">
+
+        </TextView>
+
+        <Button
+
+            android:id="@+id/btn_disjoin"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:drawableTop="@drawable/close"
+            android:background="#000000"
+            android:text="Close"
+            android:textColor="#00B6BD">
+
+        </Button>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:background="@drawable/border"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Join Code"
+                android:textSize="50dp"
+                android:textColor="#00B6BD"
+                android:gravity="center">
+
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            >
+
+
+            <TextView
+                android:layout_marginLeft="25dp"
+                android:id="@+id/tc_code1"
+                android:layout_weight="1"
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:text="3"
+                android:textColor="#00B6BD"
+                android:textSize="30sp"
+                android:gravity="center"
+                >
+
+            </TextView>
+
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:id="@+id/tc_code2"
+                android:layout_weight="1"
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:text="3"
+                android:textColor="#00B6BD"
+                android:textSize="30sp"
+                android:gravity="center">
+
+            </TextView>
+
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:id="@+id/tc_code3"
+                android:layout_weight="1"
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:text="3"
+                android:textColor="#00B6BD"
+                android:textSize="30sp"
+                android:gravity="center">
+
+            </TextView>
+
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:id="@+id/tc_code4"
+                android:layout_weight="1"
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:text="3"
+                android:textColor="#00B6BD"
+                android:textSize="30sp"
+                android:gravity="center">
+
+            </TextView>
+
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:id="@+id/tc_code5"
+                android:layout_weight="1"
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:text="3"
+                android:textColor="#00B6BD"
+                android:textSize="30sp"
+                android:gravity="center">
+
+            </TextView>
+
+            <TextView
+                android:layout_marginLeft="15dp"
+                android:id="@+id/tc_code6"
+                android:layout_weight="1"
+                android:layout_width="5dp"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:text="3"
+                android:textColor="#00B6BD"
+                android:textSize="30sp"
+                android:gravity="center"
+                android:layout_marginRight="25dp">
+
+            </TextView>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:background="@drawable/border"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:background="@drawable/border"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Room Status"
+                android:textColor="#00B6BD"
+                android:textSize="20sp">
+
+            </TextView>
+
+            <TextView
+                android:padding="5dp"
+                android:background="@drawable/border"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:text="People Num:"
+                android:textColor="#00B6BD"
+                android:textSize="15sp">
+
+            </TextView>
+
+            <TextView
+                android:padding="5dp"
+                android:background="@drawable/border"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:text="Song Num:"
+                android:textColor="#00B6BD"
+                android:textSize="15sp">
+
+            </TextView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:background="@drawable/border"
+            android:layout_width="0dp"
+            android:layout_height="230dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            >
+
+
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableTop="@drawable/search"
+                android:text="View Whole List"
+                android:textAllCaps="false"
+                android:textSize="22sp"
+                android:background="@drawable/border"
+                android:textColor="#00B6BD"
+                >
+
+            </Button>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@drawable/border"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/albumcover"
+            android:scaleType="centerCrop">
+
+        </ImageView>
+
+
+        <LinearLayout
+            android:layout_weight="5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_weight="3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:singleLine="false"
+                android:text="ROXANNE"
+                android:textColor="#00B6BD"
+                android:textSize="18sp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="10dp">
+
+            </TextView>
+
+            <TextView
+                android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:singleLine="false"
+                android:text="Arizona Zervas"
+                android:textColor="#00B6BD"
+                android:textSize="16sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp">
+
+            </TextView>
+
+        </LinearLayout>
+
+
+
+        <Button
+            android:padding="5dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/border"
+            android:drawableTop="@drawable/previous"
+            android:text="Previous"
+            android:textColor="#00B6BD"
+            android:textSize="8sp"
+            >
+
+        </Button>
+
+        <Button
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/border"
+            android:drawableTop="@drawable/pause"
+            android:text="Pasue"
+            android:textColor="#00B6BD"
+            android:textSize="8sp"
+            >
+
+        </Button>
+
+        <Button
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/border"
+            android:drawableTop="@drawable/next"
+            android:text="Next"
+            android:textColor="#00B6BD"
+            android:textSize="8sp">
+
+        </Button>
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
