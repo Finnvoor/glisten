@@ -18,11 +18,11 @@
         android:layout_height="66dp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="-33dp"
+        android:layout_marginTop="0dp"
         android:background="@drawable/header"
      />
 
-    <View
+    <Button
         android:id="@+id/loginbutton"
         android:layout_width="256dp"
         android:layout_height="57dp"
@@ -33,10 +33,11 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="324dp"
         android:background="#00000000"
+
         />
 
 
-        <View
+        <Button
             android:id="@+id/loginbubble"
             android:layout_width="256dp"
             android:layout_height="52dp"
@@ -47,26 +48,14 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="324dp"
             android:background="@drawable/loginbubble"
-            android:elevation="4dp"
+            android:text ="@string/log_in"
+            android:textAppearance="@style/log_in"
             />
-            <TextView
-                android:id="@+id/log_in"
-                android:layout_width="142dp"
-                android:layout_height="41dp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="141dp"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="141dp"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="324dp"
-                android:text="@string/log_in"
-                android:textAppearance="@style/log_in"
-                android:gravity="top"
-                />
 
 
 
-    <View
+
+    <Button
         android:id="@+id/signupbutto"
         android:layout_width="256dp"
         android:layout_height="65dp"
@@ -77,10 +66,11 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="396dp"
         android:background="#00000000"
+
         />
 
             <!-- signUpBubble -->
-        <View
+        <Button
         android:id="@+id/signupbubbl"
         android:layout_width="256dp"
         android:layout_height="52dp"
@@ -91,24 +81,11 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="396dp"
         android:background="@drawable/signupbubbl"
-        android:elevation="4dp"
-        android:translationZ="4dp"
-            />
+        android:text ="@string/sign_up"
+        android:textAppearance="@style/sign_up"/>
+
     <!-- Sign up -->
-        <TextView
-            android:id="@+id/sign_up"
-            android:layout_width="142dp"
-            android:layout_height="48dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="141dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="141dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="413dp"
-            android:text="@string/sign_up"
-            android:textAppearance="@style/sign_up"
-            android:gravity="top"
-            />
+
 
     <ImageView
         android:id="@+id/imageView"
