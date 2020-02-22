@@ -3,4 +3,14 @@
     <string name="title_activity_spotify_login">SpotifyLogin</string>
     <string name="log_in"> Log in </string>
     <string name="sign_up">Sign up</string>
+    <string name="log_in2"> LOG IN </string>
+    <string name="email">
+
+Email
+</string>
+
+    <string name="password">
+
+Password
+</string>
 </resources>

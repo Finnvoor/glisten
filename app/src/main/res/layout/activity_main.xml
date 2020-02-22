@@ -9,8 +9,7 @@
     android:background="@drawable/start_up_pa">
 
 
-
-    <!-- Rectangle 3 -->
+    <!-- header-->
 
     <View
         android:id="@+id/header"
@@ -22,6 +21,9 @@
         android:background="@drawable/header"
      />
 
+
+
+    <!-- log in button-->
     <Button
         android:id="@+id/loginbutton"
         android:layout_width="256dp"
@@ -53,7 +55,7 @@
             />
 
 
-
+    <!-- Sign up Button -->
 
     <Button
         android:id="@+id/signupbutto"
@@ -84,7 +86,7 @@
         android:text ="@string/sign_up"
         android:textAppearance="@style/sign_up"/>
 
-    <!-- Sign up -->
+    <!-- Logo  -->
 
 
     <ImageView
