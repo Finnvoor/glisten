@@ -13,4 +13,13 @@ Email
 
 Password
 </string>
+    <string name="enteremail">
+
+name@company.com
+</string>
+
+    <string name="enterpassword">
+
+Password
+</string>
 </resources>
