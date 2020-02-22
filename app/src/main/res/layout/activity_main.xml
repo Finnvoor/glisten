@@ -6,28 +6,54 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:gravity="center"
     android:background="#000000">
 
-    <Button
-        android:id="@+id/btn_guest"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:text="Guest"
-        android:textColor="#00B6BD"
-        android:background="@drawable/bg_btn">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    </Button>
+        <TextView
+            android:id="@+id/tv_userinfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:textSize="30sp"
+            android:textColor="#00b6bd"
+            android:gravity="top|right"
+            android:padding="10dp"
+            >
 
-    <Button
-        android:id="@+id/btn_host"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:text="Host"
-        android:layout_marginTop="30dp"
-        android:textColor="#00B6BD"
-        android:background="@drawable/bg_btn">
+        </TextView>
 
-    </Button>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_guest"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="Guest"
+            android:textColor="#00B6BD"
+            android:background="@drawable/bg_btn">
+
+        </Button>
+
+        <Button
+            android:id="@+id/btn_host"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="Host"
+            android:layout_marginTop="30dp"
+            android:textColor="#00B6BD"
+            android:background="@drawable/bg_btn">
+
+        </Button>
+
+    </LinearLayout>
 
 </LinearLayout>
