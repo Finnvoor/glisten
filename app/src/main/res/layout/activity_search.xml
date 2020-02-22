@@ -11,79 +11,39 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2">
+        android:layout_weight="2"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <EditText
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:id="@+id/et_search"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:textSize="16sp"
-            android:textColor="#00b6bd"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/searchbox"
+            android:hint="Search by singers, song, albums"
+            android:maxLines="1"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:maxLines="1"
-            android:layout_marginTop="100dp"
-            android:hint="Search by singers, song, albums"
+            android:singleLine="true"
+            android:textColor="#00b6bd"
             android:textColorHint="#00b6bd"
-            android:singleLine="true">
-        </EditText>
+            android:textSize="16sp"></EditText>
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/bg_btn"
+            android:gravity="center|center_vertical"
+            android:text="Search"
+            android:textColor="#ffffff"
+            android:textSize="30sp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_weight="1"
-        android:padding="15dp"
-        android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal">
-            <TextView
-                android:id="@+id/tv_popular"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Popular Search"
-                android:textColor="#00b6bd"
-                android:textSize="30sp"
-                >
-
-            </TextView>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="drake"
-                android:textAllCaps="false">
-            </Button>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="chainsmokers"
-                android:textAllCaps="false">
-            </Button>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="reputation"
-                android:textAllCaps="false">
-            </Button>
-
-
-
-        </LinearLayout>
+        </Button>
 
     </LinearLayout>
 
@@ -91,19 +51,111 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btn_search"
-            android:layout_width="200dp"
+        <TextView
+            android:id="@+id/tv_browse"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="80dp"
-            android:background="@drawable/bg_btn"
-            android:text="Search"
-            android:textColor="#ffffff"
-            android:textSize="30sp">
+            android:text="Browse All Category"
+            android:textColor="#00b6bd"
+            android:gravity="center"
+            android:textSize="25sp">
 
-        </Button>
+        </TextView>
+
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="2"
+            android:rowCount="2"
+            android:orientation="horizontal"
+            android:padding="30dp"
+            >
+
+            <LinearLayout
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:padding="15dp">
+
+                <Button
+                    android:id="@+id/btn_album"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAllCaps="false"
+                    android:text="Album"
+                    android:textColor="#00b6bd"
+                    android:textSize="20sp"
+                    android:background="@drawable/bg_btn"
+                    >
+
+                </Button>
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:padding="15dp">
+
+                <Button
+                    android:id="@+id/btn_singers"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAllCaps="false"
+                    android:text="Singers"
+                    android:textColor="#00b6bd"
+                    android:textSize="20sp"
+                    android:background="@drawable/bg_btn">
+
+
+
+                </Button>
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:padding="15dp">
+
+                <Button
+                    android:id="@+id/btn_trending"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAllCaps="false"
+                    android:text="Trending"
+                    android:textColor="#00b6bd"
+                    android:textSize="20sp"
+                    android:background="@drawable/bg_btn">
+                </Button>
+
+            </LinearLayout>
+
+            <LinearLayout
+
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:padding="15dp">
+
+                <Button
+                    android:id="@+id/btn_genre"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAllCaps="false"
+                    android:text="Genre"
+                    android:textColor="#00b6bd"
+                    android:textSize="20sp"
+                    android:background="@drawable/bg_btn">
+
+                </Button>
+
+            </LinearLayout>
+
+        </GridLayout>
 
     </LinearLayout>
 

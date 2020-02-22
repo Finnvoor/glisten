@@ -13,7 +13,7 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!--<TextView
+        <TextView
             android:id="@+id/tv_1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -23,7 +23,7 @@
             android:padding="10dp"
             android:gravity="center_vertical">
 
-        </TextView>-->
+        </TextView>
 
 
 

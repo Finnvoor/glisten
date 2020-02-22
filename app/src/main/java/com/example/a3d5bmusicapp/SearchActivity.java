@@ -23,7 +23,7 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        mPopularUnderline = findViewById(R.id.tv_popular);
+        mPopularUnderline = findViewById(R.id.tv_browse);
         mBtnSearch = findViewById(R.id.btn_search);
         mETsearch = findViewById(R.id.et_search);
 
