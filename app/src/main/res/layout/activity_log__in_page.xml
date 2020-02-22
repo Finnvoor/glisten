@@ -40,7 +40,7 @@
         android:layout_marginLeft="70dp"
         android:layout_alignParentStart="true"
         android:layout_marginStart="70dp"
-        android:inputType="text"/>
+        android:inputType="textEmailAddress"/>
 
     <TextView
         android:id="@+id/email"
@@ -81,6 +81,8 @@
         android:layout_marginLeft="70dp"
         android:layout_alignParentStart="true"
         android:layout_marginStart="70dp"
-        android:inputType="text"/>
+        android:inputType="textPassword"/>
+
+
 
 </RelativeLayout>
