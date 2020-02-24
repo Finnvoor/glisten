@@ -1,78 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- Start-up-page -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#363636"
-    tools:context=".MainActivity">
+    android:id="@+id/start_up_pa"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/start_up_pa">
 
-    <TextView
-        android:id="@+id/myrequest"
-        android:layout_width="182dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="20dp"
-        android:clickable="false"
-        android:gravity="center"
-        android:text="MY REQUEST"
-        android:textColor="#5FF8FB"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- header-->
+
+    <View
+        android:id="@+id/header"
+        android:layout_width="432dp"
+        android:layout_height="66dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/header"
+     />
+
+
+
+    <!-- log in button-->
+    <Button
+        android:id="@+id/loginbutton"
+        android:layout_width="256dp"
+        android:layout_height="57dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="324dp"
+        android:background="#00000000"
+
+        />
+
+
+        <Button
+            android:id="@+id/loginbubble"
+            android:layout_width="256dp"
+            android:layout_height="52dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="70dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="70dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="324dp"
+            android:background="@drawable/loginbubble"
+            android:text ="@string/log_in"
+            android:textAppearance="@style/log_in"
+            />
+
+
+    <!-- Sign up Button -->
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#363636"
-        android:text="SEARCH"
-        android:textColor="#5FF8FB"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:id="@+id/signupbutto"
+        android:layout_width="256dp"
+        android:layout_height="65dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="396dp"
+        android:background="#00000000"
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#363636"
-        android:text="GOBACK"
-        android:textColor="#47BFD3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="74dp"
-        android:layout_marginLeft="74dp"
-        android:layout_marginEnd="74dp"
-        android:layout_marginRight="74dp"
-        android:background="#363636"
-        android:text="HOME"
-        android:textColor="#5FF8FB"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintStart_toEndOf="@+id/button" />
+            <!-- signUpBubble -->
+        <Button
+        android:id="@+id/signupbubbl"
+        android:layout_width="256dp"
+        android:layout_height="52dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="396dp"
+        android:background="@drawable/signupbubbl"
+        android:text ="@string/sign_up"
+        android:textAppearance="@style/sign_up"/>
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="162dp"
-        android:layout_marginLeft="162dp"
-        android:layout_marginEnd="161dp"
-        android:layout_marginRight="161dp"
-        android:layout_marginBottom="15dp"
-        android:background="#363636"
-        android:text="SUBMIT"
-        android:textColor="#5FF8FB"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    <!-- Logo  -->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="320dp"
+        android:layout_height="183dp"
+        android:layout_below="@+id/header"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginTop="51dp"
+        app:srcCompat="@drawable/logo_image" />
+
+
+</RelativeLayout>

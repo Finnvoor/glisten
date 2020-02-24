@@ -17,4 +17,53 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="log_in">
+
+        <item name="android:textSize">
+            22sp
+        </item>
+
+        <item name="android:textColor">
+            #EFEFEF
+        </item>
+
+    </style>
+
+    <style name="sign_up">
+
+        <item name="android:textSize">
+            20sp
+        </item>
+
+        <item name="android:textColor">
+            #EFEFEF
+        </item>
+
+    </style>
+
+    <style name="log_in2">
+
+        <item name="android:textSize">
+            20sp
+        </item>
+
+        <item name="android:textColor">
+            #114279
+        </item>
+
+    </style>
+
+
+    <style name="email">
+
+        <item name="android:textSize">
+            20sp
+        </item>
+
+        <item name="android:textColor">
+            #114279
+        </item>
+
+    </style>
+
 </resources>
