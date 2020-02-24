@@ -66,4 +66,16 @@
 
     </style>
 
+    <style name="start_new_s">
+
+        <item name="android:textSize">
+            18sp
+        </item>
+
+        <item name="android:textColor">
+            #EFEFEF
+        </item>
+
+    </style>
+
 </resources>

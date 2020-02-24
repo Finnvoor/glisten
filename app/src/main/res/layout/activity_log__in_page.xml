@@ -17,7 +17,7 @@
         />
 
     <Button
-        android:id="@+id/rectangle_4"
+        android:id="@+id/LOGIN"
         android:layout_width="256dp"
         android:layout_height="52dp"
         android:layout_alignParentLeft="true"
