@@ -1,16 +1,16 @@
-package com.example.a3d5bmusicapp.ui.current;
+package com.example.a3d5bmusicapp.ui.host;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class CurrentViewModel extends ViewModel {
+public class HostViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public CurrentViewModel() {
+    public HostViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is current fragment");
+        mText.setValue("This is host fragment");
     }
 
     public LiveData<String> getText() {

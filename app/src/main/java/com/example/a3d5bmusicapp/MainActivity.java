@@ -21,9 +21,6 @@ public class MainActivity extends AppCompatActivity {
                 openLogInPage();
             }
         });
-
-
-
     }
 
     public void openLogInPage(){

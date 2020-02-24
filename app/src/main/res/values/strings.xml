@@ -22,4 +22,8 @@ name@company.com
 
 Password
 </string>
+    <string name="title_activity_host">HostActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
