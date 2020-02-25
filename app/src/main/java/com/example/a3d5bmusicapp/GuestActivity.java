@@ -11,6 +11,7 @@ public class GuestActivity extends AppCompatActivity {
 
     private Button mBtnBackGuest;
     private Button mBtnSearch;
+    private Button mBtnView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,12 +21,15 @@ public class GuestActivity extends AppCompatActivity {
 
         mBtnBackGuest = findViewById(R.id.back_btn_guest);
         mBtnSearch = findViewById(R.id.btn_search);
+        mBtnView = findViewById(R.id.btn_viewplaylist);
 
         mBtnBackGuest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GuestActivity.this,MainActivity.class);
-                startActivity(intent);
+                //Intent intent = new Intent(GuestActivity.this,MainActivity.class);
+                //startActivity(intent);
+
+                finish();
             }
         });
 
@@ -33,6 +37,14 @@ public class GuestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(GuestActivity.this,SearchActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBtnView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GuestActivity.this,ViewOwnedPlayListActivity.class);
                 startActivity(intent);
             }
         });

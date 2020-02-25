@@ -27,7 +27,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
                 <Button
                     android:id="@+id/btn_search"
@@ -38,6 +39,19 @@
                     android:textSize="20sp"
                     android:background="@drawable/bg_btn"
                     android:textAllCaps="false">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/btn_viewplaylist"
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:text="View own playlist"
+                    android:textColor="#00b6bd"
+                    android:textSize="20sp"
+                    android:background="@drawable/bg_btn"
+                    android:textAllCaps="false"
+                    android:layout_marginTop="30dp">
 
                 </Button>
 

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewOwnedPlayListActivity"
+    android:background="#000000">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/user_info"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="#00b6bd"
+                android:textSize="30dp"
+                android:layout_weight="1"
+                android:text="Current PlayList"
+                android:gravity="center">
+            </TextView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <GridLayout
+                android:id="@+id/user_playlist"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:columnCount="3"
+                android:rowCount="10">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/playlist_cover"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY">
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_margin="10dp"
+                        android:id="@+id/playlist_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4"
+                        android:textColor="#00b6bd"
+                        android:text="null"
+                        android:textSize="30dp"
+                        android:gravity="center">
+
+                    </TextView>
+
+                    <Button
+                        android:layout_gravity="center"
+                        android:id="@+id/add_playlist"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="ADD"
+                        android:maxLines="1"
+                        android:background="@drawable/bg_btn"
+                        android:textColor="#ffffff">
+
+                    </Button>
+
+                    
+                </LinearLayout>
+
+            </GridLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>
