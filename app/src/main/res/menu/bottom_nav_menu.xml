@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_host"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Host" />
+    <item
+        android:id="@+id/navigation_browse"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Browse" />
+
+    <item
+        android:id="@+id/navigation_current"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="Current" />
+
+    <item
+        android:id="@+id/navigation_queue"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="Queue" />
+
+</menu>

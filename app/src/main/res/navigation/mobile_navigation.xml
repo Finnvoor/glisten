@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_browse">
+
+
+    <fragment
+        android:id="@+id/navigation_host"
+        android:name="com.example.a3d5bmusicapp.ui.host.HostFragment"
+        android:label="Host"
+        tools:layout="@layout/fragment_host" />
+    <fragment
+        android:id="@+id/navigation_browse"
+        android:name="com.example.a3d5bmusicapp.ui.browse.BrowseFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_browse" />
+
+    <fragment
+        android:id="@+id/navigation_current"
+        android:name="com.example.a3d5bmusicapp.ui.current.CurrentFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_current" />
+
+    <fragment
+        android:id="@+id/navigation_queue"
+        android:name="com.example.a3d5bmusicapp.ui.queue.QueueFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_queue" />
+</navigation>

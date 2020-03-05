@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">3D5B Music App</string>
+    <string name="title_activity_spotify_login">SpotifyLogin</string>
+    <string name="log_in"> Log in </string>
+    <string name="sign_up">Sign up</string>
+    <string name="log_in2"> LOG IN </string>
+    <string name="email">
+
+Email
+</string>
+
+    <string name="password">
+
+Password
+</string>
+    <string name="enteremail">
+
+name@company.com
+</string>
+
+    <string name="enterpassword">
+
+Password
+</string>
+    <string name="title_activity_host">HostActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="sample_album">sample album</string>
+    <string name="bruises">bruises</string>
+    <string name="where_are_you">where are you</string>
+</resources>
