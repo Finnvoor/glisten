@@ -33,7 +33,7 @@ public class SpotifyLogin extends AppCompatActivity {
     private static final String CLIENT_ID = "d7df40ed56214e28af69045f70adee3e";
     private static final String REDIRECT_URI = "com.example.a3d5bmusicapp://callback";
     private static final int REQUEST_CODE = 1337;
-    private static final String SCOPES = "user-read-recently-played,user-library-modify,user-read-email,user-read-private";
+    private static final String SCOPES = "user-read-recently-played,user-library-modify,user-read-email,user-read-private,user-read-currently-playing";
 
     private SharedPreferences.Editor editor;
     private SharedPreferences msharedPreferences;

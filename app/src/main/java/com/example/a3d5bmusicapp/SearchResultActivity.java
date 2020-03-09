@@ -135,14 +135,10 @@ public class SearchResultActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String keyword = intent.getStringExtra("keyword");
 
-        //displayResult(keyword);
 
         msharedPreferences = this.getSharedPreferences("SPOTIFY", 0);
         queue = Volley.newRequestQueue(this);
 
-        String testtoken = msharedPreferences.getString("token", "");
-
-        //displayResult(keyword);
         getSongs(keyword);
         getSingers(keyword);
         getAlbums(keyword);

@@ -16,6 +16,7 @@ public class GuestActivity extends AppCompatActivity {
     private Button mBtnBackGuest;
     private Button mBtnSearch;
     private Button mBtnView;
+    private Button mBtnViewCurrentSong;
 
 
 
@@ -28,6 +29,7 @@ public class GuestActivity extends AppCompatActivity {
         mBtnBackGuest = findViewById(R.id.back_btn_guest);
         mBtnSearch = findViewById(R.id.btn_search);
         mBtnView = findViewById(R.id.btn_viewplaylist);
+        mBtnViewCurrentSong = findViewById(R.id.btn_viewcurrentsong);
 
         mBtnBackGuest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +67,14 @@ public class GuestActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 textGenerateNumber.setText(String.valueOf(myRandom.nextInt(1000000)));
+            }
+        });
+
+        mBtnViewCurrentSong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(GuestActivity.this,CurrentSongActivity.class);
+                startActivity(intent);
             }
         });
 
