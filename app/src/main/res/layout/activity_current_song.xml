@@ -99,4 +99,27 @@
         app:layout_constraintStart_toEndOf="@+id/albumName"
         app:layout_constraintTop_toBottomOf="@+id/currentArtist" />
 
+    <TextView
+        android:id="@+id/currentTime"
+        android:layout_width="75dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:text="0:00"
+        app:layout_constraintStart_toStartOf="@+id/songProgressBar2"
+        app:layout_constraintTop_toBottomOf="@+id/songProgressBar2" />
+
+
+    <TextView
+        android:id="@+id/wholeTime"
+        android:layout_width="75dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:text="0:00"
+        app:layout_constraintStart_toEndOf="@+id/songProgressBar2"
+        app:layout_constraintTop_toBottomOf="@+id/songProgressBar2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
