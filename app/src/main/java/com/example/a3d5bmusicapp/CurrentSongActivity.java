@@ -154,9 +154,14 @@ public class CurrentSongActivity extends AppCompatActivity {
 
                             setText_own(currentTime,currenttime);
 
+                            String wholetime = "";
                             int whole_minute =(int)((float)whole / 1000) / 60;
                             int whole_second = (int)((float)whole /1000) % 60;
-                            String wholetime = whole_minute + ":" + whole_second;
+                            if( whole_second < 10){
+                                wholetime = whole_minute + ":" + "0" + whole_second;
+                            }else{
+                                wholetime = whole_minute + ":" + whole_second;
+                            }
                             setText_own(wholeTime,wholetime);
 
 

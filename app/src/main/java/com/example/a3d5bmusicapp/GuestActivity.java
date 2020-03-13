@@ -57,18 +57,7 @@ public class GuestActivity extends AppCompatActivity {
             }
         });
 
-        final Random myRandom = new Random();
 
-        Button buttonGenerate = (Button)findViewById(R.id.generate);
-        final TextView textGenerateNumber = (TextView)findViewById(R.id.generatenumber);
-
-        buttonGenerate.setOnClickListener(new View.OnClickListener(){
-
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                textGenerateNumber.setText(String.valueOf(myRandom.nextInt(1000000)));
-            }
-        });
 
         mBtnViewCurrentSong.setOnClickListener(new View.OnClickListener() {
             @Override

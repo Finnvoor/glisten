@@ -128,6 +128,12 @@ public class MainActivity extends AppCompatActivity {
                         try {
                             String user_name = response.getString("display_name");
                             mUser.setText("Current User: " +user_name);
+
+                            editor = getSharedPreferences("SPOTIFY", 0).edit();
+                            editor.putString("host", user_name);
+                            editor.apply();
+
+
                         }catch (JSONException e){
                             Log.d("ERROR","error => "+e.toString());
                         }
