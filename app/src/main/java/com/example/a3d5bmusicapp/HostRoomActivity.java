@@ -30,7 +30,6 @@ import java.util.Random;
 
 public class HostRoomActivity extends AppCompatActivity {
 
-
     private Button buttonGenerate;
     private TextView textGenerateNumber;
 
@@ -39,7 +38,7 @@ public class HostRoomActivity extends AppCompatActivity {
 
     private RequestQueue queue;
 
-    public class Room {
+    public static class Room {
         public int room_code;
         public String host;
 
@@ -93,7 +92,6 @@ public class HostRoomActivity extends AppCompatActivity {
                 String host_name = getHostName();
                 Room room = new Room (room_code,host_name,0,0,people,queue);
                 addRoomtoFirebase(room);
-                room.song_queue.add("123");
             }
          });
 
