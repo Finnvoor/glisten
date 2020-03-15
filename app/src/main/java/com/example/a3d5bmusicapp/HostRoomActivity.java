@@ -1,5 +1,6 @@
 package com.example.a3d5bmusicapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
@@ -17,8 +18,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,6 +40,8 @@ public class HostRoomActivity extends AppCompatActivity {
     private SharedPreferences.Editor editor;
     private SharedPreferences msharedPreferences;
 
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+
     private RequestQueue queue;
 
     public static class Room {
@@ -43,7 +49,6 @@ public class HostRoomActivity extends AppCompatActivity {
         public String host;
 
         public int people_num;
-        public Map<String,Boolean> categories;
         public ArrayList<String> people_name;
 
         public int song_num;
@@ -82,6 +87,14 @@ public class HostRoomActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 int room_code = generateCode();
+                checkDuplicateCode(room_code);
+                String isDup = msharedPreferences.getString("dup_code","");
+                Log.d("is_dup",isDup);
+                /*while( isDup.compareTo("true") == 0){
+                    room_code = generateCode();
+                    checkDuplicateCode(room_code);
+                    isDup = msharedPreferences.getString("dup_code","");
+                }*/
                 textGenerateNumber.setText(String.valueOf(room_code));
                 ArrayList<String>people = new ArrayList<>(1);
                 people.add("");
@@ -93,7 +106,7 @@ public class HostRoomActivity extends AppCompatActivity {
                 Room room = new Room (room_code,host_name,0,0,people,queue);
                 addRoomtoFirebase(room);
             }
-         });
+        });
 
     }
 
@@ -103,7 +116,6 @@ public class HostRoomActivity extends AppCompatActivity {
     }
 
     private  void addRoomtoFirebase(Room room){
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference(String.valueOf(room.room_code));
         myRef.setValue(room);
     }
@@ -111,6 +123,27 @@ public class HostRoomActivity extends AppCompatActivity {
 
     private String getHostName() {
         return msharedPreferences.getString("host", "");
+    }
+
+
+    private void checkDuplicateCode(int roomcode){
+        DatabaseReference myRef = database.getReference();
+
+        myRef.orderByChild("room_code").equalTo(roomcode).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String bool = String.valueOf(dataSnapshot.exists());
+                Log.d("demo",bool);
+                editor = getSharedPreferences("SPOTIFY", 0).edit();
+                editor.putString("dup_code",bool);
+                editor.apply();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
 }

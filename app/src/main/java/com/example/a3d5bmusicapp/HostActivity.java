@@ -75,6 +75,7 @@ public class HostActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String bool = String.valueOf(dataSnapshot.exists());
+                Log.d("host_own_in", bool);
                 editor = getSharedPreferences("SPOTIFY", 0).edit();
                 editor.putString("host_own_room",bool);
                 editor.apply();
@@ -86,4 +87,5 @@ public class HostActivity extends AppCompatActivity {
             }
         });
     }
+
 }
