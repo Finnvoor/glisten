@@ -22,6 +22,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONException;
@@ -34,8 +35,9 @@ import java.util.Random;
 
 public class HostRoomActivity extends AppCompatActivity {
 
-    private Button buttonGenerate;
+    //private Button buttonGenerate;
     private TextView textGenerateNumber;
+    private Button closeRoom;
 
     private SharedPreferences.Editor editor;
     private SharedPreferences msharedPreferences;
@@ -80,33 +82,48 @@ public class HostRoomActivity extends AppCompatActivity {
         queue = Volley.newRequestQueue(this);
 
 
-        buttonGenerate = findViewById(R.id.generate);
+        //buttonGenerate = findViewById(R.id.generate);
+        closeRoom = findViewById(R.id.close_room);
         textGenerateNumber = findViewById(R.id.generatenumber);
 
-        buttonGenerate.setOnClickListener(new View.OnClickListener(){
+        String host_room_check = msharedPreferences.getString("host_own_room","");
+        if( host_room_check.compareTo("true") == 0){
+            String host_name = msharedPreferences.getString("host","");
+            getRoomInfor(host_name);
+
+        }else {
+
+            int room_code = generateCode();
+            textGenerateNumber.setText(String.valueOf(room_code));
+            addRoomtoFirebase(room_code);
+
+        }
+
+        closeRoom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String host_name = msharedPreferences.getString("host","");
+                deleteRoom(host_name);
+                finish();
+            }
+        });
+
+        /*buttonGenerate.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 int room_code = generateCode();
-                checkDuplicateCode(room_code);
+                /*checkDuplicateCode(room_code);
                 String isDup = msharedPreferences.getString("dup_code","");
                 Log.d("is_dup",isDup);
-                /*while( isDup.compareTo("true") == 0){
+                while( isDup.compareTo("true") == 0){
                     room_code = generateCode();
                     checkDuplicateCode(room_code);
                     isDup = msharedPreferences.getString("dup_code","");
-                }*/
+                }
                 textGenerateNumber.setText(String.valueOf(room_code));
-                ArrayList<String>people = new ArrayList<>(1);
-                people.add("");
-
-                ArrayList<String>queue = new ArrayList<>(1);
-                queue.add("");
-
-                String host_name = getHostName();
-                Room room = new Room (room_code,host_name,0,0,people,queue);
-                addRoomtoFirebase(room);
+                addRoomtoFirebase(room_code);
             }
-        });
+        });*/
 
     }
 
@@ -115,7 +132,16 @@ public class HostRoomActivity extends AppCompatActivity {
         return  myRandom.nextInt(1000000);
     }
 
-    private  void addRoomtoFirebase(Room room){
+    private  void addRoomtoFirebase(int room_code){
+        ArrayList<String>people = new ArrayList<>(1);
+        people.add("");
+
+        ArrayList<String>queue = new ArrayList<>(1);
+        queue.add("");
+
+        String host_name = getHostName();
+        Room room = new Room (room_code,host_name,0,0,people,queue);
+
         DatabaseReference myRef = database.getReference(String.valueOf(room.room_code));
         myRef.setValue(room);
     }
@@ -126,10 +152,10 @@ public class HostRoomActivity extends AppCompatActivity {
     }
 
 
-    private void checkDuplicateCode(int roomcode){
+    /*private void checkDuplicateCode(int roomcode){
         DatabaseReference myRef = database.getReference();
 
-        myRef.orderByChild("room_code").equalTo(roomcode).addValueEventListener(new ValueEventListener() {
+        myRef.orderByChild("room_code").equalTo(roomcode).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String bool = String.valueOf(dataSnapshot.exists());
@@ -144,6 +170,47 @@ public class HostRoomActivity extends AppCompatActivity {
 
             }
         });
+    }*/
+
+    private void deleteRoom(String host_name){
+        Query applesQuery = database.getReference().orderByChild("host").equalTo(host_name);
+
+        applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
+                    appleSnapshot.getRef().removeValue();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e("onCancelled","error");
+            }
+        });
+    }
+
+    private void getRoomInfor(String hostname){
+        Query applesQuery = database.getReference().orderByChild("host").equalTo(hostname);
+
+        applesQuery.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
+                    Room singleRoom = singleSnapshot.getValue(Room.class);
+                    int room_code = singleRoom.room_code;
+                    textGenerateNumber.setText(String.valueOf(room_code));
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e("onCancelled","error");
+            }
+        });
+
+
     }
 
 }

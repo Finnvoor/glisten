@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -41,9 +42,18 @@ public class HostActivity extends AppCompatActivity {
         setContentView(R.layout.activity_host);
 
         msharedPreferences = this.getSharedPreferences("SPOTIFY", 0);
+        queue = Volley.newRequestQueue(this);
+        queue.cancelAll("getUserInfor");
 
         new_session = findViewById(R.id.imageButton);
         checkownroom = findViewById(R.id.check_current_room);
+        checkownroom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HostActivity.this, HostRoomActivity.class);
+                startActivity(intent);
+            }
+        });
         String hostname = getHostName();
 
         new_session.setOnClickListener(new View.OnClickListener() {

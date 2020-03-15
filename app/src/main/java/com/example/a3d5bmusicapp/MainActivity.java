@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         getUserInfor();
 
 
+
         hostbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -167,6 +168,8 @@ public class MainActivity extends AppCompatActivity {
 //                return params;
 //            }
         };
+        getRequest.setTag("getUserInfor");
+
         queue.add(getRequest);
 
 
