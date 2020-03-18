@@ -88,7 +88,7 @@ public class HostRoomActivity extends AppCompatActivity {
 
         String host_room_check = msharedPreferences.getString("host_own_room","");
         if( host_room_check.compareTo("true") == 0){
-            String host_name = msharedPreferences.getString("host","");
+            String host_name = msharedPreferences.getString("user","");
             getRoomInfor(host_name);
 
         }else {
@@ -102,7 +102,7 @@ public class HostRoomActivity extends AppCompatActivity {
         closeRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String host_name = msharedPreferences.getString("host","");
+                String host_name = msharedPreferences.getString("user","");
                 deleteRoom(host_name);
                 finish();
             }
@@ -134,13 +134,14 @@ public class HostRoomActivity extends AppCompatActivity {
 
     private  void addRoomtoFirebase(int room_code){
         ArrayList<String>people = new ArrayList<>(1);
-        people.add("");
+        String host = getHostName();
+        people.add(host);
 
         ArrayList<String>queue = new ArrayList<>(1);
         queue.add("");
 
         String host_name = getHostName();
-        Room room = new Room (room_code,host_name,0,0,people,queue);
+        Room room = new Room (room_code,host_name,1,0,people,queue);
 
         DatabaseReference myRef = database.getReference(String.valueOf(room.room_code));
         myRef.setValue(room);
@@ -148,7 +149,7 @@ public class HostRoomActivity extends AppCompatActivity {
 
 
     private String getHostName() {
-        return msharedPreferences.getString("host", "");
+        return msharedPreferences.getString("user", "");
     }
 
 

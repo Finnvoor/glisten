@@ -1,5 +1,6 @@
 package com.example.a3d5bmusicapp;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -19,6 +21,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.gson.JsonObject;
 import com.spotify.sdk.android.authentication.AuthenticationClient;
 import com.spotify.sdk.android.authentication.AuthenticationRequest;
@@ -27,10 +34,13 @@ import com.spotify.sdk.android.authentication.AuthenticationResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
 
     private Button guestbutton;
     private Button hostbutton;
@@ -49,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,20 +75,43 @@ public class MainActivity extends AppCompatActivity {
         getUserInfor();
 
 
+        String host_name = msharedPreferences.getString("user","");
+        if(host_name.length() == 0){
+            authenticateSpotify();
+            getUserInfor();
+        }
+
+
+
 
         hostbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,HostActivity.class);
-                startActivity(intent);
+                isguest();
+                String isguest = msharedPreferences.getString("isguest","");
+                if(isguest.compareTo("true") == 0 ){
+                    Toast.makeText(MainActivity.this,"You are already in one room.\n Can't be the host of new room.",Toast.LENGTH_SHORT).show();
+                    return;
+                }else {
+                    Intent intent = new Intent(MainActivity.this, HostActivity.class);
+                    startActivity(intent);
+                }
+
             }
         });
 
         guestbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,GuestActivity.class);
-                startActivity(intent);
+                ishost();
+                String ishost = msharedPreferences.getString("ishost","");
+                if(ishost.compareTo("true") == 0 ){
+                    Toast.makeText(MainActivity.this,"You already own one room.\n Can't be the guest.",Toast.LENGTH_SHORT).show();
+                    return;
+                }else {
+                    Intent intent = new Intent(MainActivity.this, GuestEnterRoomCodeActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }
@@ -131,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
                             mUser.setText("Current User: " +user_name);
 
                             editor = getSharedPreferences("SPOTIFY", 0).edit();
-                            editor.putString("host", user_name);
+                            editor.putString("user", user_name);
                             editor.apply();
 
 
@@ -172,10 +206,72 @@ public class MainActivity extends AppCompatActivity {
 
         queue.add(getRequest);
 
+    }
 
 
+    private void ishost(){
+        DatabaseReference myRef = database.getReference();
+        String username = msharedPreferences.getString("user","");
 
+        myRef.orderByChild("host").equalTo(username).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String bool = String.valueOf(dataSnapshot.exists());
+                editor = getSharedPreferences("SPOTIFY", 0).edit();
+                editor.putString("ishost",bool);
+                Log.d("ishost", bool);
+                editor.apply();
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+    }
+
+    private void isguest(){
+        DatabaseReference myRef = database.getReference();
+        String username = msharedPreferences.getString("user","");
+
+        editor = getSharedPreferences("SPOTIFY", 0).edit();
+        editor.putString("isguest","false");
+        Log.d("ishost", "false");
+        editor.apply();
+
+        myRef.orderByChild("num").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int check = 0;
+
+                if(dataSnapshot.exists()) {
+                    for (DataSnapshot singleSnapshot : dataSnapshot.getChildren()) {
+                        HostRoomActivity.Room singleRoom = singleSnapshot.getValue(HostRoomActivity.Room.class);
+                        ArrayList<String> people = singleRoom.people_name;
+
+                        if(check == 1){break;}
+
+                        for (int i = 1; i <people.size(); i++){
+                            if(people.get(i).compareTo(username) == 0) {
+                                editor = getSharedPreferences("SPOTIFY", 0).edit();
+                                editor.putString("isguest", "true");
+                                Log.d("isguest", "true");
+                                editor.apply();
+                                check = 1;
+                                break;
+                            }
+                        }
+                    }
+
+                }else{
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 }

@@ -45,16 +45,26 @@ public class HostActivity extends AppCompatActivity {
         queue = Volley.newRequestQueue(this);
         queue.cancelAll("getUserInfor");
 
+        String hostname = getHostName();
+
         new_session = findViewById(R.id.imageButton);
         checkownroom = findViewById(R.id.check_current_room);
         checkownroom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HostActivity.this, HostRoomActivity.class);
-                startActivity(intent);
+                haveRoom(hostname);
+                String have = msharedPreferences.getString("host_own_room","");
+                if( have.compareTo("true") == 0) {
+                    Intent intent = new Intent(HostActivity.this, HostRoomActivity.class);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(HostActivity.this,"You are not the host yet.\nCreate a new room first!",Toast.LENGTH_SHORT).show();
+                    return;
+
+                }
             }
         });
-        String hostname = getHostName();
+
 
         new_session.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +84,7 @@ public class HostActivity extends AppCompatActivity {
     }
 
     private String getHostName() {
-        return msharedPreferences.getString("host", "");
+        return msharedPreferences.getString("user", "");
     }
 
 

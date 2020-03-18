@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".GuestEnterRoomCodeActivity"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <EditText
+        android:id="@+id/room_code"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:background="@drawable/bg_btn"
+        android:hint="Room code"
+        android:textAllCaps="false"
+        android:textColorHint="#00b6bd"
+        android:textColor="#00b6bd"
+        android:inputType="number"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:layout_marginBottom="100dp">
+
+    </EditText>
+
+
+
+
+    <Button
+        android:id="@+id/btn_enter"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:background="@drawable/bg_btn"
+        android:text="Enter"
+        android:textAllCaps="false"
+        android:textColor="#00b6bd"
+        android:textSize="20sp">
+
+    </Button>
+
+</LinearLayout>

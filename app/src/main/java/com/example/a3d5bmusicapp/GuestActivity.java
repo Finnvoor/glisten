@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class GuestActivity extends AppCompatActivity {
 
-    private Button mBtnBackGuest;
+
     private Button mBtnSearch;
     private Button mBtnView;
     private Button mBtnViewCurrentSong;
@@ -26,20 +26,10 @@ public class GuestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_guest);
 
 
-        mBtnBackGuest = findViewById(R.id.back_btn_guest);
+
         mBtnSearch = findViewById(R.id.btn_search);
         mBtnView = findViewById(R.id.btn_viewplaylist);
         mBtnViewCurrentSong = findViewById(R.id.btn_viewcurrentsong);
-
-        mBtnBackGuest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Intent intent = new Intent(GuestActivity.this,MainActivity.class);
-                //startActivity(intent);
-
-                finish();
-            }
-        });
 
         mBtnSearch.setOnClickListener(new View.OnClickListener() {
             @Override

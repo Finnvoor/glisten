@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".GuestEnterRoomCodeActivity"></activity>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,9 +22,7 @@
         <activity android:name=".HostRoomActivity" />
         <activity android:name=".CurrentSongActivity" />
         <activity android:name=".ViewOwnedPlayListActivity" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".SearchResultActivity" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".GuestActivity" />
