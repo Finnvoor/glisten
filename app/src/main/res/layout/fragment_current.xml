@@ -25,9 +25,10 @@
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
         android:background="#F9F9F9"
-        android:scaleType="fitXY"
+        android:contentDescription="sample_album"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_dashboard" />
+        app:layout_constraintTop_toBottomOf="@+id/text_dashboard"
+        app:srcCompat="@drawable/djdisk" />
 
     <ProgressBar
         android:id="@+id/songProgressBar2"
@@ -53,11 +54,9 @@
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
         android:gravity="center_vertical"
-        android:text="Song"
+        android:text="Bruises"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:ellipsize="end"
-        android:maxLines="1"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/text_dashboard" />
 
@@ -69,10 +68,8 @@
         android:layout_marginLeft="28dp"
         android:layout_marginTop="10dp"
         android:gravity="center_vertical"
-        android:text="Artist"
+        android:text="Lewis Calpaldi"
         android:textSize="18dp"
-        android:ellipsize="end"
-        android:maxLines="1"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/currentSongTitle" />
 
@@ -83,9 +80,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
         android:layout_marginTop="10dp"
-        android:maxLines="1"
-        android:text="Album"
-        android:ellipsize="end"
+        android:text="Bruises"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/currentArtist" />
 
@@ -96,31 +91,8 @@
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
-        android:text="Year"
+        android:text="2017"
         app:layout_constraintStart_toEndOf="@+id/albumName"
         app:layout_constraintTop_toBottomOf="@+id/currentArtist" />
-
-    <TextView
-        android:id="@+id/currentTime"
-        android:layout_width="75dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="10dp"
-        android:text="0:00"
-        app:layout_constraintStart_toStartOf="@+id/songProgressBar2"
-        app:layout_constraintTop_toBottomOf="@+id/songProgressBar2" />
-
-
-    <TextView
-        android:id="@+id/wholeTime"
-        android:layout_width="75dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="10dp"
-        android:text="0:00"
-        app:layout_constraintStart_toEndOf="@+id/songProgressBar2"
-        app:layout_constraintTop_toBottomOf="@+id/songProgressBar2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

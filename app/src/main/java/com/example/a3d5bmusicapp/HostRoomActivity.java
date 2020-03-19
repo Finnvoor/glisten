@@ -2,6 +2,10 @@ package com.example.a3d5bmusicapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -18,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -78,12 +83,22 @@ public class HostRoomActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_host_room);
 
+        BottomNavigationView navView = findViewById(R.id.nav_view);
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(R.id.navigation_host,
+                R.id.navigation_browse, R.id.navigation_current, R.id.navigation_queue)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        NavigationUI.setupWithNavController(navView, navController);
+
         msharedPreferences = this.getSharedPreferences("SPOTIFY", 0);
         queue = Volley.newRequestQueue(this);
 
 
         //buttonGenerate = findViewById(R.id.generate);
-        closeRoom = findViewById(R.id.close_room);
+        /*closeRoom = findViewById(R.id.close_room);
         textGenerateNumber = findViewById(R.id.generatenumber);
 
         String host_room_check = msharedPreferences.getString("host_own_room","");
@@ -106,28 +121,10 @@ public class HostRoomActivity extends AppCompatActivity {
                 deleteRoom(host_name);
                 finish();
             }
-        });
-
-        /*buttonGenerate.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                int room_code = generateCode();
-                /*checkDuplicateCode(room_code);
-                String isDup = msharedPreferences.getString("dup_code","");
-                Log.d("is_dup",isDup);
-                while( isDup.compareTo("true") == 0){
-                    room_code = generateCode();
-                    checkDuplicateCode(room_code);
-                    isDup = msharedPreferences.getString("dup_code","");
-                }
-                textGenerateNumber.setText(String.valueOf(room_code));
-                addRoomtoFirebase(room_code);
-            }
         });*/
-
     }
 
-    private int generateCode(){
+    /*private int generateCode(){
         final Random myRandom = new Random();
         return  myRandom.nextInt(1000000);
     }
@@ -150,7 +147,7 @@ public class HostRoomActivity extends AppCompatActivity {
 
     private String getHostName() {
         return msharedPreferences.getString("user", "");
-    }
+    }*/
 
 
     /*private void checkDuplicateCode(int roomcode){
@@ -173,7 +170,7 @@ public class HostRoomActivity extends AppCompatActivity {
         });
     }*/
 
-    private void deleteRoom(String host_name){
+    /*private void deleteRoom(String host_name){
         Query applesQuery = database.getReference().orderByChild("host").equalTo(host_name);
 
         applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -212,6 +209,6 @@ public class HostRoomActivity extends AppCompatActivity {
         });
 
 
-    }
+    }*/
 
 }

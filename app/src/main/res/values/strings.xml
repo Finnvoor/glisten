@@ -4,5 +4,8 @@
     <string name="start_new_s">Start new session</string>
     <string name="todo">TODO</string>
     <string name="log_in"> Log in </string>
+    <string name="title_browse">Browse</string>
+    <string name="title_current">Current</string>
+    <string name="title_queue">Queue</string>
 
 </resources>
