@@ -4,9 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aapt="http://schemas.android.com/aapt"
     android:width="360dp"
-    android:height="720dp"
+    android:height="640dp"
     android:viewportWidth="360"
-    android:viewportHeight="720"
+    android:viewportHeight="640"
     >
 
     <group>
@@ -35,7 +35,7 @@
                         android:type="linear"
                         android:startX="0"
                         android:startY="320"
-                        android:endX="270"
+                        android:endX="300"
                         android:endY="320"
                         >
 
