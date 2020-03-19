@@ -1,20 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/text_home"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center_horizontal" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent"
+        android:gravity="center|top"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/searchbox"
+            android:hint="Search by singers, song, albums"
+            android:maxLines="1"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:singleLine="true"
+            android:textColor="#00b6bd"
+            android:textColorHint="#00b6bd"
+            android:textSize="16sp"></EditText>
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/bg_btn"
+            android:gravity="center"
+            android:text="Search"
+            android:textColor="#ffffff"
+            android:textSize="30sp">
+
+        </Button>
+
+        <Button
+            android:id="@+id/btn_trending"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:textAllCaps="false"
+            android:text="Trending"
+            android:textColor="#00b6bd"
+            android:textSize="20sp"
+            android:layout_margin="30dp"
+            android:background="@drawable/bg_btn">
+        </Button>
+
+        <Button
+            android:id="@+id/view_host_playlist"
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:textAllCaps="false"
+            android:text="View your own playlist"
+            android:textColor="#00b6bd"
+            android:textSize="20sp"
+            android:layout_margin="20dp"
+            android:background="@drawable/bg_btn">
+        </Button>
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -27,7 +27,6 @@
         <activity android:name=".SearchActivity" />
         <activity android:name=".GuestActivity" />
         <activity android:name=".HostActivity" />
-        <activity android:name=".SpotifyLogin" />
     </application>
 
 </manifest>
