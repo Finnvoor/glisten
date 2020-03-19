@@ -10,7 +10,9 @@ public class HostViewModel extends ViewModel {
 
     public HostViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is host fragment");
+        mText.setValue("Host");
+
+
     }
 
     public LiveData<String> getText() {

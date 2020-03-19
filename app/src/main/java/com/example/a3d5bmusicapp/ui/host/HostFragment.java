@@ -22,7 +22,7 @@ public class HostFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         hostViewModel =
                 ViewModelProviders.of(this).get(HostViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_current, container, false);
+        View root = inflater.inflate(R.layout.fragment_host, container, false);
         final TextView textView = root.findViewById(R.id.text_dashboard);
         hostViewModel.getText().observe(this, new Observer<String>() {
             @Override
