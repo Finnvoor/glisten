@@ -8,8 +8,6 @@
     android:background = "@drawable/host_page">
 
 
-
-
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="290dp"
@@ -17,10 +15,11 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="63dp"
-        android:layout_marginLeft="63dp"
-        android:layout_marginTop="183dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="159dp"
         android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
         android:color="#114279"
         android:contentDescription="@string/todo"
         android:cropToPadding="true"
@@ -30,8 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/djdisk"
-        android:background="@android:color/transparent"/>
+        app:srcCompat="@drawable/djdisk" />
 
     <TextView
         android:id="@+id/start_new_s"
@@ -40,9 +38,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="190dp"
-        android:layout_marginLeft="190dp"
-        android:layout_marginTop="340dp"
+        android:layout_marginStart="186dp"
+        android:layout_marginLeft="186dp"
+        android:layout_marginTop="305dp"
         android:layout_marginBottom="20dp"
         android:gravity="top"
         android:text="@string/start_new_s"
@@ -54,14 +52,14 @@
 
     <TextView
         android:id="@+id/start_new_s2"
-        android:layout_width="195dp"
+        android:layout_width="200dp"
         android:layout_height="29dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="178dp"
         android:layout_marginLeft="178dp"
-        android:layout_marginTop="361dp"
+        android:layout_marginTop="337dp"
         android:layout_marginBottom="20dp"
         android:gravity="top"
         android:text="@string/start_new_s2"
@@ -73,12 +71,12 @@
 
     <TextView
         android:id="@+id/text_dashboard"
-        android:layout_width="389dp"
-        android:layout_height="wrap_content"
+        android:layout_width="403dp"
+        android:layout_height="38dp"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="0dp"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -92,9 +90,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="85dp"
-        android:layout_marginLeft="85dp"
-        android:layout_marginTop="472dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginLeft="77dp"
+        android:layout_marginTop="463dp"
         android:background="@drawable/login"
         android:text="@string/log_out"
         android:textAppearance="@style/log_in2" />
@@ -108,7 +106,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/login"
         android:text="@string/partyName"
         android:textAppearance="@style/log_in2" />
