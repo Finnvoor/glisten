@@ -54,6 +54,17 @@
 
         </Button>
 
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="Log out"
+            android:layout_marginTop="30dp"
+            android:textColor="#00B6BD"
+            android:background="@drawable/bg_btn">
+
+        </Button>
+
     </LinearLayout>
 
 </LinearLayout>

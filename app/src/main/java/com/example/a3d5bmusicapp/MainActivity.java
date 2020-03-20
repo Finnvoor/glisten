@@ -9,6 +9,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button guestbutton;
     private Button hostbutton;
+    private Button logout;
     private TextView mUser;
 
 
@@ -68,19 +71,41 @@ public class MainActivity extends AppCompatActivity {
         guestbutton = findViewById(R.id.btn_guest);
         hostbutton = findViewById(R.id.btn_host);
         mUser = findViewById(R.id.tv_userinfo);
-
-        authenticateSpotify();
+        logout = findViewById(R.id.btn_logout);
         msharedPreferences = this.getSharedPreferences("SPOTIFY", 0);
         queue = Volley.newRequestQueue(this);
-        getUserInfor();
+
+        authenticateSpotify();
+
+        //getUserInfor();
 
 
         String host_name = msharedPreferences.getString("user","");
-        if(host_name.length() == 0){
+        /*while(host_name.length() == 0){
             authenticateSpotify();
             getUserInfor();
-        }
+        }*/
 
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editor = msharedPreferences.edit();
+                editor.clear();
+                editor.apply();
+                //AuthenticationClient.logout();
+                CookieSyncManager.createInstance(MainActivity.this);
+                CookieManager cookieManager = CookieManager.getInstance();
+                cookieManager.removeAllCookie();
+
+
+
+                /*AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(CLIENT_ID, AuthenticationResponse.Type.TOKEN, REDIRECT_URI);
+                builder.setShowDialog(true).setScopes(new String[]{SCOPES});
+                AuthenticationRequest request = builder.build();
+                AuthenticationClient.openLoginActivity(MainActivity.this, REQUEST_CODE, request);*/
+                finish();
+            }
+        });
 
 
 
@@ -136,6 +161,7 @@ public class MainActivity extends AppCompatActivity {
                     editor.putString("token", response.getAccessToken());
                     Log.d("STARTING", "GOT AUTH TOKEN");
                     editor.apply();
+                    getUserInfor();
                     //waitForUserInfo();
                     break;
 
