@@ -29,6 +29,13 @@ Password
     <string name="start_new_s">New</string>
     <string name="start_new_s2">Session</string>
     <string name="todo">TODO</string>
-    <string name="log_out">Existing Sessions</string>
+    <string name="log_out">LOG OUT</string>
     <string name="partyName">Current Session Name</string>
+    <string name="current_session">Current Session</string>
+    <string name="access_code">Access Code</string>
+    <string name="num_people">Number of people in Playlist</string>
+    <string name="num_people_val"> 21 </string>
+    <string name="access_code_val"> BH65711 </string>
+    <string name="current_session_val"> Jane\'s 21st </string>
+    <string name="username_val"> janewalsh </string>
 </resources>
