@@ -48,8 +48,10 @@ public class MainActivity extends AppCompatActivity {
 
     private Button guestbutton;
     private Button hostbutton;
-    private Button logout;
+    //private Button logout;
     private TextView mUser;
+
+
 
 
     private static final String CLIENT_ID = "d7df40ed56214e28af69045f70adee3e";
@@ -76,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         guestbutton = findViewById(R.id.btn_guest);
         hostbutton = findViewById(R.id.btn_host);
         mUser = findViewById(R.id.tv_userinfo);
-        logout = findViewById(R.id.btn_logout);
+        //logout = findViewById(R.id.btn_logout);
         msharedPreferences = this.getSharedPreferences("SPOTIFY", 0);
         queue = Volley.newRequestQueue(this);
 
@@ -91,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             getUserInfor();
         }*/
 
-        logout.setOnClickListener(new View.OnClickListener() {
+        /*logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 editor = msharedPreferences.edit();
@@ -101,16 +103,9 @@ public class MainActivity extends AppCompatActivity {
                 CookieSyncManager.createInstance(MainActivity.this);
                 CookieManager cookieManager = CookieManager.getInstance();
                 cookieManager.removeAllCookie();
-
-
-
-                /*AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(CLIENT_ID, AuthenticationResponse.Type.TOKEN, REDIRECT_URI);
-                builder.setShowDialog(true).setScopes(new String[]{SCOPES});
-                AuthenticationRequest request = builder.build();
-                AuthenticationClient.openLoginActivity(MainActivity.this, REQUEST_CODE, request);*/
                 finish();
             }
-        });
+        });*/
 
 
 
