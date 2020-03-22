@@ -37,5 +37,6 @@ Password
     <string name="num_people_val"> 21 </string>
     <string name="access_code_val"> BH65711 </string>
     <string name="current_session_val"> Jane\'s 21st </string>
-    <string name="username_val"> janewalsh </string>
+    <string name="username_val"> jane_walsh </string>
+    <string name="existing_session"> Existing Sessions </string>
 </resources>
