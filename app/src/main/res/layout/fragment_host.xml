@@ -97,19 +97,7 @@
         android:text="@string/log_out"
         android:textAppearance="@style/log_in2" />
 
-    <Button
-        android:id="@+id/Party"
-        android:layout_width="338dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/login"
-        android:text="@string/partyName"
-        android:textAppearance="@style/log_in2" />
+
 
 
 </RelativeLayout>

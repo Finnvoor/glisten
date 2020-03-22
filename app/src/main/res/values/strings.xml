@@ -29,6 +29,6 @@ Password
     <string name="start_new_s">New</string>
     <string name="start_new_s2">Session</string>
     <string name="todo">TODO</string>
-    <string name="log_out">LOG OUT</string>
+    <string name="log_out">Existing Sessions</string>
     <string name="partyName">Current Session Name</string>
 </resources>
