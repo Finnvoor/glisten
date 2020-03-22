@@ -53,7 +53,7 @@ public class HostActivity extends AppCompatActivity {
         String hostname = getHostName();
 
         new_session = findViewById(R.id.imageButton);
-        checkownroom = findViewById(R.id.check_current_room);
+        checkownroom = findViewById(R.id.loginConfirm);
         checkownroom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
