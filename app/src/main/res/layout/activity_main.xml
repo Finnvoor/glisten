@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:background="#000000">
+    android:background="@drawable/host_page">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top"
             android:textSize="30sp"
-            android:textColor="#00b6bd"
+            android:textColor="#000000"
             android:gravity="top|right"
             android:padding="10dp"
             >
@@ -38,8 +38,9 @@
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:text="Guest"
-            android:textColor="#00B6BD"
-            android:background="@drawable/bg_btn">
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/guest_button">
 
         </Button>
 
@@ -48,9 +49,10 @@
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:text="Host"
+            android:textStyle="bold"
             android:layout_marginTop="30dp"
-            android:textColor="#00B6BD"
-            android:background="@drawable/bg_btn">
+            android:textColor="#FFFFFF"
+            android:background="@drawable/host_button">
 
         </Button>
 
