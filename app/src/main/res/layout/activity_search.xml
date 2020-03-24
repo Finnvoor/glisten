@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SearchActivity"
-    android:background="#000000"
+    android:background="#FFFFFF"
     android:orientation="vertical">
 
     <LinearLayout
@@ -28,8 +28,8 @@
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:singleLine="true"
-            android:textColor="#00b6bd"
-            android:textColorHint="#00b6bd"
+            android:textColor="#1b4177"
+            android:textColorHint="#1b4177"
             android:textSize="16sp"></EditText>
 
         <Button
@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Browse All Category"
-            android:textColor="#00b6bd"
+            android:textColor="#1b4177"
             android:gravity="center"
             android:textSize="25sp">
 
@@ -86,7 +86,7 @@
                     android:layout_height="match_parent"
                     android:textAllCaps="false"
                     android:text="Album"
-                    android:textColor="#00b6bd"
+                    android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:background="@drawable/bg_btn"
                     >
@@ -106,7 +106,7 @@
                     android:layout_height="match_parent"
                     android:textAllCaps="false"
                     android:text="Singers"
-                    android:textColor="#00b6bd"
+                    android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:background="@drawable/bg_btn">
 
@@ -128,7 +128,7 @@
                     android:layout_height="match_parent"
                     android:textAllCaps="false"
                     android:text="Trending"
-                    android:textColor="#00b6bd"
+                    android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:background="@drawable/bg_btn">
                 </Button>
@@ -147,7 +147,7 @@
                     android:layout_height="match_parent"
                     android:textAllCaps="false"
                     android:text="Genre"
-                    android:textColor="#00b6bd"
+                    android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:background="@drawable/bg_btn">
 

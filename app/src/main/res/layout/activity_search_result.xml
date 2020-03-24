@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SearchResultActivity"
-    android:background="#000000"
+    android:background="#FFFFFF"
     >
 
 
@@ -31,7 +31,7 @@
                 android:layout_height="50dp"
                 android:textSize="20sp"
                 android:maxLines="1"
-                android:textColor="#00b6b6"
+                android:textColor="#FFFFFF"
                 android:background="@drawable/bg_btn"
                 android:padding="10dp"
                 android:gravity="center_vertical"
@@ -46,7 +46,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/bg_btn"
                 android:text="Cancel"
-                android:textColor="#00b6bd"
+                android:textColor="#1b4177"
                 android:layout_marginLeft="10dp">
 
             </Button>
@@ -133,7 +133,7 @@
                             android:layout_height="match_parent"
                             android:text="null"
                             android:textSize="18sp"
-                            android:textColor="#00b6bd">
+                            android:textColor="#1b4177">
 
                         </TextView>
 
@@ -146,7 +146,7 @@
                             android:layout_height="match_parent"
                             android:text="null"
                             android:textSize="18sp"
-                            android:textColor="#00b6bd">
+                            android:textColor="#1b4177">
 
                         </TextView>
 

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Single List Item Design -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dip">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dip"
+        android:padding="3dip">
+        <ImageView
+            android:id="@+id/albumArt"
+            android:layout_width="50dip"
+            android:layout_height="50dip">
+        </ImageView>
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/songName"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="15dip"
+        android:textStyle="bold">
+
+    </TextView>
+</LinearLayout>
+
+<!--<ListView-->
+<!--    android:id="@+id/list"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:divider="#000"-->
+<!--    android:dividerHeight="1dp"-->
+<!--    android:footerDividersEnabled="false"-->
+<!--    android:headerDividersEnabled="false"-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android" />-->
+
+<!--<LinearLayout-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="80dp"-->
+<!--    android:orientation="horizontal"-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android">-->
+<!--    <ImageView-->
+<!--        android:id="@+id/albumArt"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_weight="3"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:scaleType="fitXY">-->
+
+<!--    </ImageView>-->
+<!--    <TextView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--        android:id="@+id/label"-->
+<!--        android:layout_width="fill_parent"-->
+<!--        android:layout_height="fill_parent"-->
+<!--        android:padding="10dip"-->
+<!--        android:textSize="16dip"-->
+<!--        android:textStyle="bold">-->
+<!--    </TextView>-->
+<!--</LinearLayout>-->
