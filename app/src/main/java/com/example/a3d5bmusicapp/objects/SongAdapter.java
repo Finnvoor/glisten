@@ -1,4 +1,4 @@
-package com.example.a3d5bmusicapp;
+package com.example.a3d5bmusicapp.objects;
 
 import android.content.Context;
 import android.database.DataSetObserver;
@@ -9,8 +9,11 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
+import com.example.a3d5bmusicapp.R;
 import com.example.a3d5bmusicapp.objects.Song;
 import com.squareup.picasso.Picasso;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -75,8 +78,10 @@ public class SongAdapter implements ListAdapter {
                 public void onClick(View v) {}
             });
             TextView name = convertView.findViewById(R.id.songName);
+            TextView artist = convertView.findViewById(R.id.songArtist);
             ImageView albumArt = convertView.findViewById(R.id.albumArt);
             name.setText(song.name);
+            artist.setText(song.artist);
             Picasso.with(context)
                     .load(song.image)
                     .into(albumArt);

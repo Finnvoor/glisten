@@ -4,21 +4,17 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.a3d5bmusicapp.R;
-import com.example.a3d5bmusicapp.SongAdapter;
+import com.example.a3d5bmusicapp.objects.SongAdapter;
 import com.example.a3d5bmusicapp.objects.Song;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class QueueFragment extends Fragment {
@@ -30,8 +26,8 @@ public class QueueFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        songs.add(new Song("Song 1", "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4bb82b72535211.5bead62fe26d5.jpg"));
-        songs.add(new Song("Song 2", "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4bb82b72535211.5bead62fe26d5.jpg"));
+        songs.add(new Song("Song 1", "Drake", "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4bb82b72535211.5bead62fe26d5.jpg"));
+        songs.add(new Song("Song 2", "Drake", "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4bb82b72535211.5bead62fe26d5.jpg"));
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,

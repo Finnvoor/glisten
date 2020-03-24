@@ -12,6 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
         android:orientation="vertical">
 
         <LinearLayout
@@ -52,275 +53,45 @@
             </Button>
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/result_selection"
+<!--        <LinearLayout-->
+<!--            android:id="@+id/result_selection"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <Button-->
+<!--                android:id="@+id/result_songs"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="Songs">-->
+
+<!--            </Button>-->
+
+<!--            <Button-->
+<!--                android:id="@+id/result_singers"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="Singers">-->
+
+<!--            </Button>-->
+
+<!--            <Button-->
+<!--                android:id="@+id/result_albums"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="Albums">-->
+
+<!--            </Button>-->
+
+<!--        </LinearLayout>-->
+        <ListView
+            android:id="@+id/song_results_list"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/result_songs"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Songs">
-
-            </Button>
-
-            <Button
-                android:id="@+id/result_singers"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Singers">
-
-            </Button>
-
-            <Button
-                android:id="@+id/result_albums"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="Albums">
-
-            </Button>
-
-        </LinearLayout>
-
-        <LinearLayout
-
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <GridLayout
-                android:id="@+id/grid_songs"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:columnCount="1"
-                android:rowCount="10"
-                android:visibility="visible"
-                >
-
-                <LinearLayout
-                    android:id="@+id/sr_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:orientation="horizontal"
-                    android:padding="5dp"
-                    android:layout_margin="10dp">
-
-                    <ImageView
-                        android:id="@+id/iv_1"
-                        android:layout_width="0dp"
-                        android:layout_weight="3"
-                        android:layout_height="match_parent"
-                        android:scaleType="fitXY">
-
-                    </ImageView>
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:layout_weight="8">
-
-                        <TextView
-                            android:padding="3dp"
-                            android:id="@+id/sr_tv_1"
-                            android:singleLine="true"
-                            android:layout_width="match_parent"
-                            android:layout_weight="1"
-                            android:layout_height="match_parent"
-                            android:text="null"
-                            android:textSize="18sp"
-                            android:textColor="#1b4177">
-
-                        </TextView>
-
-                        <TextView
-                            android:padding="3dp"
-                            android:layout_weight="1"
-                            android:id="@+id/sr_tv_2"
-                            android:singleLine="true"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="null"
-                            android:textSize="18sp"
-                            android:textColor="#1b4177">
-
-                        </TextView>
-
-
-
-                    </LinearLayout>
-
-
-                    <Button
-                        android:id="@+id/btn_songs_add"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="ADD"
-                        android:background="@drawable/bg_btn"
-                        android:textColor="#ffffff"
-                        android:textSize="30sp">
-                    </Button>
-                </LinearLayout>
-            </GridLayout>
-
-
-            <GridLayout
-                android:id="@+id/grid_singers"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:columnCount="1"
-                android:rowCount="10"
-                android:visibility="gone"
-                >
-
-                <LinearLayout
-                    android:id="@+id/sr_singer_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:orientation="horizontal"
-                    android:padding="5dp"
-                    android:layout_margin="10dp">
-
-                    <ImageView
-                        android:id="@+id/iv_singer_1"
-                        android:layout_width="0dp"
-                        android:layout_weight="3"
-                        android:layout_height="match_parent"
-                        android:scaleType="fitXY">
-
-                    </ImageView>
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:layout_weight="8">
-
-                        <TextView
-                            android:padding="3dp"
-                            android:id="@+id/sr_tv_singer_1"
-                            android:singleLine="true"
-                            android:layout_width="match_parent"
-                            android:layout_weight="1"
-                            android:layout_height="match_parent"
-                            android:text="null"
-                            android:textSize="18sp"
-                            android:textColor="#00b6bd"
-                            android:gravity="center"
-                            android:paddingLeft="10dp">
-
-                        </TextView>
-
-                        <TextView
-                            android:padding="3dp"
-                            android:id="@+id/sr_tv_singer_popu_1"
-                            android:singleLine="true"
-                            android:layout_width="match_parent"
-                            android:layout_weight="1"
-                            android:layout_height="match_parent"
-                            android:text="null"
-                            android:textSize="18sp"
-                            android:textColor="#00b6bd"
-                            android:gravity="center"
-                            android:paddingLeft="10dp">
-
-                        </TextView>
-                    </LinearLayout>
-
-
-                    <Button
-                        android:id="@+id/btn_singers_detail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="Detail"
-                        android:background="@drawable/bg_btn"
-                        android:textColor="#ffffff"
-                        android:textSize="20sp">
-                    </Button>
-                </LinearLayout>
-            </GridLayout>
-
-
-
-
-            <GridLayout
-                android:id="@+id/grid_albums"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:columnCount="1"
-                android:rowCount="10"
-                android:visibility="gone">
-
-                <LinearLayout
-                    android:id="@+id/sr_ablum_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:orientation="horizontal"
-                    android:padding="5dp"
-                    android:layout_margin="10dp">
-
-                    <ImageView
-                        android:id="@+id/iv_album_1"
-                        android:layout_width="0dp"
-                        android:layout_weight="3"
-                        android:layout_height="match_parent"
-                        android:scaleType="fitXY">
-
-                    </ImageView>
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:layout_weight="8">
-
-                        <TextView
-                            android:padding="3dp"
-                            android:id="@+id/sr_tv_album_1"
-                            android:singleLine="true"
-                            android:layout_width="match_parent"
-                            android:layout_weight="1"
-                            android:layout_height="match_parent"
-                            android:text="null"
-                            android:textSize="18sp"
-                            android:textColor="#00b6bd">
-
-                        </TextView>
-
-                        <TextView
-                            android:padding="3dp"
-                            android:layout_weight="1"
-                            android:id="@+id/sr_tv_album_2"
-                            android:singleLine="true"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="null"
-                            android:textSize="18sp"
-                            android:textColor="#00b6bd">
-
-                        </TextView>
-
-
-
-                    </LinearLayout>
-
-
-                    <Button
-                        android:id="@+id/btn_album_detail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="Detail"
-                        android:background="@drawable/bg_btn"
-                        android:textColor="#ffffff"
-                        android:textSize="20sp">
-                    </Button>
-                </LinearLayout>
-            </GridLayout>
-
-
-        </LinearLayout>
-
+            android:layout_height="550dp"
+            android:fillViewport="true">
+        </ListView>
     </LinearLayout>
 </ScrollView>

@@ -17,46 +17,23 @@
             android:layout_height="50dip">
         </ImageView>
     </LinearLayout>
-    
-    <TextView
-        android:id="@+id/songName"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="15dip"
-        android:textStyle="bold">
-
-    </TextView>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/songName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="15dip"
+            android:textStyle="bold">
+        </TextView>
+        <TextView
+            android:id="@+id/songArtist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="15dip"
+            android:textStyle="bold">
+        </TextView>
+    </LinearLayout>
 </LinearLayout>
-
-<!--<ListView-->
-<!--    android:id="@+id/list"-->
-<!--    android:layout_width="wrap_content"-->
-<!--    android:layout_height="match_parent"-->
-<!--    android:divider="#000"-->
-<!--    android:dividerHeight="1dp"-->
-<!--    android:footerDividersEnabled="false"-->
-<!--    android:headerDividersEnabled="false"-->
-<!--    xmlns:android="http://schemas.android.com/apk/res/android" />-->
-
-<!--<LinearLayout-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="80dp"-->
-<!--    android:orientation="horizontal"-->
-<!--    xmlns:android="http://schemas.android.com/apk/res/android">-->
-<!--    <ImageView-->
-<!--        android:id="@+id/albumArt"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_weight="3"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:scaleType="fitXY">-->
-
-<!--    </ImageView>-->
-<!--    <TextView xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--        android:id="@+id/label"-->
-<!--        android:layout_width="fill_parent"-->
-<!--        android:layout_height="fill_parent"-->
-<!--        android:padding="10dip"-->
-<!--        android:textSize="16dip"-->
-<!--        android:textStyle="bold">-->
-<!--    </TextView>-->
-<!--</LinearLayout>-->
