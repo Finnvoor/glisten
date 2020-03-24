@@ -22,6 +22,7 @@ import com.example.a3d5bmusicapp.GuestActivity;
 import com.example.a3d5bmusicapp.R;
 import com.example.a3d5bmusicapp.SearchActivity;
 import com.example.a3d5bmusicapp.SearchResultActivity;
+import com.example.a3d5bmusicapp.TrendingActivity;
 import com.example.a3d5bmusicapp.ViewOwnedPlayListActivity;
 
 public class BrowseFragment extends Fragment {
@@ -31,6 +32,7 @@ public class BrowseFragment extends Fragment {
     private EditText mETsearch;
     private BrowseViewModel browseViewModel;
     private Button mViewHostPlaylist;
+    private Button mbtnTrending;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class BrowseFragment extends Fragment {
 
 
         mBtnSearch = root.findViewById(R.id.btn_search);
+        mbtnTrending = root.findViewById(R.id.btn_trending);
         mETsearch = root.findViewById(R.id.et_search);
         mViewHostPlaylist = root.findViewById(R.id.view_host_playlist);
 
@@ -93,6 +96,13 @@ public class BrowseFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ViewOwnedPlayListActivity.class);
+                startActivity(intent);
+            }
+        });
+        mbtnTrending.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), TrendingActivity.class);
                 startActivity(intent);
             }
         });

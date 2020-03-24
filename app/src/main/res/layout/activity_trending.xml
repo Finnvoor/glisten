@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TrendingActivity"
+    android:background="#114279">
+
+    <Button
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="-2dp"
+        android:background="@drawable/header2"
+        android:text="Trending"
+        android:textColor="#FFFFFF"
+        android:textSize="45sp" />
+
+    <ListView
+        android:id="@+id/song_results_list"
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="98dp"
+        android:fillViewport="true">
+
+    </ListView>
+</RelativeLayout>
