@@ -1,72 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
-    android:orientation="vertical">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center|top"
-        android:orientation="vertical">
-
-        <EditText
-            android:id="@+id/et_search"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/searchbox"
-            android:hint="Search by singers, song, albums"
-            android:maxLines="1"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:singleLine="true"
-            android:textColor="#00b6bd"
-            android:textColorHint="#00b6bd"
-            android:textSize="16sp"></EditText>
-
-        <Button
-            android:id="@+id/btn_search"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/bg_btn"
-            android:gravity="center"
-            android:text="Search"
-            android:textColor="#ffffff"
-            android:textSize="30sp">
-
-        </Button>
-
-        <Button
-            android:id="@+id/btn_trending"
-            android:layout_width="200dp"
-            android:layout_height="80dp"
-            android:textAllCaps="false"
-            android:text="Trending"
-            android:textColor="#00b6bd"
-            android:textSize="20sp"
-            android:layout_margin="30dp"
-            android:background="@drawable/bg_btn">
-        </Button>
-
-        <Button
-            android:id="@+id/view_host_playlist"
-            android:layout_width="250dp"
-            android:layout_height="80dp"
-            android:textAllCaps="false"
-            android:text="View your own playlist"
-            android:textColor="#00b6bd"
-            android:textSize="20sp"
-            android:layout_margin="20dp"
-            android:background="@drawable/bg_btn">
-        </Button>
-    </LinearLayout>
+    android:background="#E7E7E7">
 
 
-</LinearLayout>
+    <Button
+        android:id="@+id/btn_trending"
+        android:layout_width="234dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/custom_button"
+        android:text="Trending"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_host_playlist"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/view_host_playlist"
+        android:layout_width="234dp"
+        android:layout_height="52dp"
+        android:background="@drawable/custom_button"
+        android:text="View Playlists"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.60" />
+
+    <EditText
+        android:id="@+id/et_search"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/searchicon"
+        android:ems="10"
+        android:hint="Browse by Song"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/view_host_playlist"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.60" />
+
+    <Button
+        android:id="@+id/btn_search"
+        android:layout_width="234dp"
+        android:layout_height="52dp"
+        android:background="@drawable/custom_button_plain"
+        android:text="Browse"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/view_host_playlist"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_search"
+        app:layout_constraintVertical_bias="0.60" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="113dp"
+        android:layout_height="69dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:color="#114279"
+        android:cropToPadding="true"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.381"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.086"
+        app:srcCompat="@drawable/djdisk" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@android:string/search_go"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        app:layout_constraintBottom_toTopOf="@+id/et_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
