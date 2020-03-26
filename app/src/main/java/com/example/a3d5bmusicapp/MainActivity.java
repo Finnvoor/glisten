@@ -188,10 +188,12 @@ public class MainActivity extends AppCompatActivity {
                         //Log.d("Response", response.toString());
                         try {
                             String user_name = response.getString("display_name");
+                            String user_id = response.getString("id");
                             mUser.setText("Current User: " +user_name);
 
                             editor = getSharedPreferences("SPOTIFY", 0).edit();
                             editor.putString("user", user_name);
+                            editor.putString("user_id",user_id);
                             editor.apply();
 
 

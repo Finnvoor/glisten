@@ -25,15 +25,26 @@
 
     </EditText>
 
-
-
-
     <Button
         android:id="@+id/btn_enter"
         android:layout_width="300dp"
         android:layout_height="80dp"
         android:background="@drawable/bg_btn"
         android:text="Enter"
+        android:textAllCaps="false"
+        android:textColor="#00b6bd"
+        android:textSize="20sp">
+
+    </Button>
+
+
+    <Button
+        android:id="@+id/btn_check_in_room"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:background="@drawable/bg_btn"
+        android:layout_marginTop="50dp"
+        android:text="Already in one room? \nClick here!"
         android:textAllCaps="false"
         android:textColor="#00b6bd"
         android:textSize="20sp">

@@ -63,6 +63,8 @@ public class HostRoomActivity extends AppCompatActivity {
         public int song_num;
         public ArrayList<String> song_queue;
 
+        public String sessionName;
+
         public Room() {
         }
 
@@ -73,6 +75,7 @@ public class HostRoomActivity extends AppCompatActivity {
             this.song_num = song_num;
             this.people_name = people;
             this.song_queue = queue;
+            this.sessionName = "";
 
         }
 
