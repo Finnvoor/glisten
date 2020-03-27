@@ -10,10 +10,7 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.example.a3d5bmusicapp.R;
-import com.example.a3d5bmusicapp.objects.Song;
 import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 

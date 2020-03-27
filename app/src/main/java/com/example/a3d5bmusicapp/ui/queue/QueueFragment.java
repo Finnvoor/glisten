@@ -37,7 +37,6 @@ public class QueueFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_queue, container, false);
 
         SongAdapter adapter = new SongAdapter(this.getContext(), songs);
-//        ArrayAdapter adapter = new ArrayAdapter<String>(this.getActivity(), R.layout.activity_songlistview, songs);
         final ListView listView = root.findViewById(R.id.song_list);
         listView.setAdapter(adapter);
 
