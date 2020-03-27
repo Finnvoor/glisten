@@ -1,19 +1,14 @@
 package com.example.a3d5bmusicapp;
 
 
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.GridLayout;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,12 +20,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.bumptech.glide.Glide;
+
 import com.example.a3d5bmusicapp.objects.Song;
 import com.example.a3d5bmusicapp.objects.SongAdapter;
-import com.spotify.sdk.android.authentication.AuthenticationClient;
-import com.spotify.sdk.android.authentication.AuthenticationRequest;
-import com.spotify.sdk.android.authentication.AuthenticationResponse;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -62,7 +54,7 @@ public class SearchResultActivity extends AppCompatActivity {
         actionBar.hide();
 
         setContentView(R.layout.activity_search_result);
-        
+
         btn_cancel = findViewById(R.id.btn_cancel);
         songList = findViewById(R.id.song_results_list);
         btn_cancel.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +89,11 @@ public class SearchResultActivity extends AppCompatActivity {
                             JSONArray songs = response.getJSONObject("tracks").getJSONArray("items");
                             for (int i = 0; i < songs.length(); i++) {
                                 JSONObject song = songs.getJSONObject(i);
-                                searchResults.add(new Song(song.getString("name"), song.getJSONArray("artists").getJSONObject(0).getString("name"), song.getJSONObject("album").getJSONArray("images").getJSONObject(2).getString("url")));
+                                searchResults.add(new Song(
+                                        song.getString("name"),
+                                        song.getJSONArray("artists").getJSONObject(0).getString("name"),
+                                        song.getJSONObject("album").getJSONArray("images").getJSONObject(2).getString("url")
+                                ));
                             }
                             SongAdapter songAdapter = new SongAdapter(getBaseContext(), searchResults);
                             songList.setAdapter(songAdapter);
