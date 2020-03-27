@@ -25,6 +25,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.a3d5bmusicapp.ui.host.HostFragment;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -267,14 +268,14 @@ public class MainActivity extends AppCompatActivity {
         Log.d("ishost", "false");
         editor.apply();
 
-        myRef.orderByChild("num").addValueEventListener(new ValueEventListener() {
+        myRef.orderByChild("people_num").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 int check = 0;
 
                 if(dataSnapshot.exists()) {
                     for (DataSnapshot singleSnapshot : dataSnapshot.getChildren()) {
-                        HostRoomActivity.Room singleRoom = singleSnapshot.getValue(HostRoomActivity.Room.class);
+                        HostFragment.Room singleRoom = singleSnapshot.getValue(HostFragment.Room.class);
                         ArrayList<String> people = singleRoom.people_name;
 
                         if(check == 1){break;}
