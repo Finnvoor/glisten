@@ -23,7 +23,6 @@
         android:layout_width="match_parent"
         android:layout_height="550dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="98dp"
         android:fillViewport="true">
 
     </ListView>

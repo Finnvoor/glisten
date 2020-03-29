@@ -277,7 +277,7 @@ public class MainActivity extends AppCompatActivity {
                     for (DataSnapshot singleSnapshot : dataSnapshot.getChildren()) {
                         HostFragment.Room singleRoom = singleSnapshot.getValue(HostFragment.Room.class);
                         ArrayList<String> people = singleRoom.people_name;
-                        if (people == null) { break;}
+                        //if (people == null) { break;}
                         if(check == 1){break;}
 
                         for (int i = 1; i <people.size(); i++){
