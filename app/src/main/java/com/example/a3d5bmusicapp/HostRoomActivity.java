@@ -65,10 +65,13 @@ public class HostRoomActivity extends AppCompatActivity {
 
         public String sessionName;
 
+        public String host_token;
+        public String host_playlist_id;
+
         public Room() {
         }
 
-        public Room(int code, String host, int people_num, int song_num, ArrayList<String>people, ArrayList<String> queue) {
+        public Room(int code, String host, int people_num, int song_num, ArrayList<String>people, ArrayList<String> queue,String token,String id) {
             this.room_code = code;
             this.host = host;
             this.people_num = people_num;
@@ -76,9 +79,10 @@ public class HostRoomActivity extends AppCompatActivity {
             this.people_name = people;
             this.song_queue = queue;
             this.sessionName = "";
+            this.host_token = token;
+            this.host_playlist_id = id;
 
         }
-
     }
 
 

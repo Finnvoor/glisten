@@ -58,7 +58,7 @@ public class TrendingActivity extends AppCompatActivity {
 
     private void getBillboardSongs() {
         String billboardplaylistid = "6UeSakyzhiEt4NB3UAd6NQ";
-        String fields = "fields=items(track(name%2Calbum(artists%2Cimages)))&limit=10";
+        String fields = "fields=items(track(name%2Curi%2Calbum(artists%2Cimages)))&limit=5";
 
         String endpoint = "https://api.spotify.com/v1/playlists/"  +  billboardplaylistid + "/tracks?" +fields;
         JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, endpoint,null,
@@ -73,6 +73,7 @@ public class TrendingActivity extends AppCompatActivity {
                             for (int i = 0; i < songs.length(); i++) {
                                 JSONObject song = songs.getJSONObject(i).getJSONObject("track");
                                 String title = song.getString("name");
+                                String uri = song.getString("uri");
                                 //Log.d("title",title);
                                 String cover = song.getJSONObject("album").getJSONArray("images").getJSONObject(2).getString("url");
                                 ArrayList<String> singers_real = new ArrayList<String>();
@@ -81,7 +82,7 @@ public class TrendingActivity extends AppCompatActivity {
                                     singers_real.add(singers.getJSONObject(j).getString("name"));
                                 }
 
-                                trend temp_trend = new trend(title,singers_real,cover);
+                                trend temp_trend = new trend(title,singers_real,cover,uri);
                                 trend_results.add(temp_trend);
                             }
                             trendadapter trendAdapter = new trendadapter(trend_results,getBaseContext());

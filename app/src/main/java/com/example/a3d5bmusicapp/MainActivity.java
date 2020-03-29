@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String CLIENT_ID = "d7df40ed56214e28af69045f70adee3e";
     private static final String REDIRECT_URI = "com.example.a3d5bmusicapp://callback";
     private static final int REQUEST_CODE = 1337;
-    private static final String SCOPES = "user-read-recently-played,user-library-modify,user-read-email,user-read-private,user-read-currently-playing";
+    private static final String SCOPES = "user-read-recently-played,user-library-modify,user-read-email,user-read-private,user-read-currently-playing,playlist-modify-public,playlist-modify-private";
 
     private SharedPreferences.Editor editor;
     private SharedPreferences msharedPreferences;
@@ -275,7 +275,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if(dataSnapshot.exists()) {
                     for (DataSnapshot singleSnapshot : dataSnapshot.getChildren()) {
-                        HostFragment.Room singleRoom = singleSnapshot.getValue(HostFragment.Room.class);
+                        HostRoomActivity.Room singleRoom = singleSnapshot.getValue(HostRoomActivity.Room.class);
                         ArrayList<String> people = singleRoom.people_name;
                         //if (people == null) { break;}
                         if(check == 1){break;}

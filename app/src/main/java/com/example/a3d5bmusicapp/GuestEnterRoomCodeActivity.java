@@ -139,7 +139,7 @@ public class GuestEnterRoomCodeActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
-                    HostFragment.Room temproom = appleSnapshot.getValue(HostFragment.Room.class);
+                    HostRoomActivity.Room temproom = appleSnapshot.getValue(HostRoomActivity.Room.class);
                     ArrayList<String> people_in_room = temproom.people_name;
                     int check = 0;
                     for(int i = 0; i < people_in_room.size();i++){
@@ -180,7 +180,7 @@ public class GuestEnterRoomCodeActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
                     for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
-                        HostFragment.Room temproom = appleSnapshot.getValue(HostFragment.Room.class);
+                        HostRoomActivity.Room temproom = appleSnapshot.getValue(HostRoomActivity.Room.class);
                         Log.d("snapshot", String.valueOf(dataSnapshot));
                         Log.d("Room class", temproom.host);
                         ArrayList<String> people = temproom.people_name;
