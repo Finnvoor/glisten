@@ -159,17 +159,9 @@ public class trendadapter extends BaseAdapter {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
                     HostRoomActivity.Room temproom = appleSnapshot.getValue(HostRoomActivity.Room.class);
-                    String hostname = temproom.host;
-                        if(hostname.compareTo(username) == 0){
-                            String host_token = temproom.host_token;
-                            editor = mContext.getSharedPreferences("SPOTIFY", 0).edit();
-                            editor.putString("host_token", host_token);
-                            editor.apply();
-                            break;
-                        }else{
                             ArrayList<String> guests= temproom.people_name;
                             int check =0;
-                            for(int i = 1; i < guests.size();i++){
+                            for(int i = 0; i < guests.size();i++){
                                 String name = guests.get(i);
                                 if(name.compareTo(username) == 0){
                                     editor = mContext.getSharedPreferences("SPOTIFY", 0).edit();
@@ -180,8 +172,6 @@ public class trendadapter extends BaseAdapter {
                                 }
                             }
                             if(check == 1){break;}
-
-                        }
                     }
                 }
 
