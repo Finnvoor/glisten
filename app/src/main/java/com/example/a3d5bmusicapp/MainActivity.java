@@ -52,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
     //private Button logout;
     private TextView mUser;
 
+    private boolean ishost = false;
+    private boolean isguest = false;
+
 
 
 
@@ -113,9 +116,9 @@ public class MainActivity extends AppCompatActivity {
         hostbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                isguest();
-                String isguest = msharedPreferences.getString("isguest","");
-                if(isguest.compareTo("true") == 0 ){
+                isguestOrhost();
+                //String isguest = msharedPreferences.getString("isguest","");
+                if(isguest == true ){
                     Toast.makeText(MainActivity.this,"You are already in one room.\n Can't be the host of new room.",Toast.LENGTH_SHORT).show();
                     return;
                 }else {
@@ -129,9 +132,9 @@ public class MainActivity extends AppCompatActivity {
         guestbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ishost();
-                String ishost = msharedPreferences.getString("ishost","");
-                if(ishost.compareTo("true") == 0 ){
+                isguestOrhost();
+                //String ishost = msharedPreferences.getString("ishost","");
+                if(ishost == true){
                     Toast.makeText(MainActivity.this,"You already own one room.\n Can't be the guest.",Toast.LENGTH_SHORT).show();
                     return;
                 }else {
@@ -163,18 +166,12 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("STARTING", "GOT AUTH TOKEN");
                     editor.apply();
                     getUserInfor();
-                    //waitForUserInfo();
                     break;
 
-                // Auth flow returned an error
                 case ERROR:
-                    // Handle error response
                     break;
-
-                // Most likely auth flow was cancelled
                 default:
                     break;
-                // Handle other cases
             }
         }
     }
@@ -237,36 +234,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-    private void ishost(){
+    private void isguestOrhost(){
         DatabaseReference myRef = database.getReference();
         String username = msharedPreferences.getString("user","");
 
-        myRef.orderByChild("host").equalTo(username).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String bool = String.valueOf(dataSnapshot.exists());
-                editor = getSharedPreferences("SPOTIFY", 0).edit();
-                editor.putString("ishost",bool);
-                Log.d("ishost", bool);
-                editor.apply();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
-
-    private void isguest(){
-        DatabaseReference myRef = database.getReference();
-        String username = msharedPreferences.getString("user","");
-
-        editor = getSharedPreferences("SPOTIFY", 0).edit();
+        /*editor = getSharedPreferences("SPOTIFY", 0).edit();
         editor.putString("isguest","false");
         Log.d("ishost", "false");
-        editor.apply();
+        editor.apply();*/
 
         myRef.orderByChild("people_num").addValueEventListener(new ValueEventListener() {
             @Override
@@ -280,15 +255,20 @@ public class MainActivity extends AppCompatActivity {
                         //if (people == null) { break;}
                         if(check == 1){break;}
 
-                        for (int i = 1; i <people.size(); i++){
+                        for (int i = 0; i <people.size(); i++){
                             if(people.get(i).compareTo(username) == 0) {
-                                editor = getSharedPreferences("SPOTIFY", 0).edit();
+                                /*editor = getSharedPreferences("SPOTIFY", 0).edit();
                                 editor.putString("isguest", "true");
                                 Log.d("isguest", "true");
                                 editor.apply();
+                                check = 1;*/
+                                if( i == 0 ){ishost = true; isguest = false;}
+                                else{ ishost = false; isguest = true;}
                                 check = 1;
                                 break;
                             }
+                            ishost = false; isguest = false;
+
                         }
                     }
 
