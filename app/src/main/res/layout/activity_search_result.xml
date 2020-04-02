@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SearchResultActivity"
-    android:background="#FFFFFF"
+    android:background="@drawable/host_page"
     >
 
 
@@ -41,16 +41,29 @@
             </EditText>
 
             <Button
-                android:id="@+id/btn_cancel"
+                android:id="@+id/btn_searchagain"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/bg_btn"
-                android:text="Cancel"
-                android:textColor="#1b4177"
-                android:layout_marginLeft="10dp">
+                android:text="Search"
+                android:textColor="#FFFFFF">
 
             </Button>
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="43dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/custom_button"
+                android:text="Exit"
+                android:textColor="#FFFFFF">
+
+            </Button>
+
         </LinearLayout>
 
 <!--        <LinearLayout-->
