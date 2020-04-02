@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ViewOwnedPlayListActivity"
-    android:background="#000000">
+    android:background="@drawable/host_page">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
 
@@ -19,16 +19,17 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textColor="#00b6bd"
-                android:textSize="30dp"
                 android:layout_weight="1"
-                android:text="Current PlayList"
-                android:gravity="center">
-            </TextView>
+                android:gravity="center"
+                android:text="My Playlists"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#114279"
+                android:textSize="36sp"></TextView>
 
         </LinearLayout>
 
@@ -58,32 +59,32 @@
                     </ImageView>
 
                     <TextView
-                        android:layout_margin="10dp"
                         android:id="@+id/playlist_name"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:layout_margin="10dp"
                         android:layout_weight="4"
-                        android:textColor="#00b6bd"
+                        android:gravity="center"
                         android:text="null"
-                        android:textSize="30dp"
-                        android:gravity="center">
+                        android:textColor="#114279"
+                        android:textSize="30dp">
 
                     </TextView>
 
                     <Button
-                        android:layout_gravity="center"
                         android:id="@+id/add_playlist"
-                        android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
-                        android:text="ADD"
-                        android:maxLines="1"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
                         android:background="@drawable/bg_btn"
+                        android:maxLines="1"
+                        android:text="ADD"
                         android:textColor="#ffffff">
 
                     </Button>
 
-                    
+
                 </LinearLayout>
 
             </GridLayout>
