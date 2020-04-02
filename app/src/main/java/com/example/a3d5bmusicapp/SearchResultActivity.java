@@ -95,7 +95,7 @@ public class SearchResultActivity extends AppCompatActivity {
                                         song.getJSONObject("album").getJSONArray("images").getJSONObject(2).getString("url")
                                 ));
                             }
-                            SongAdapter songAdapter = new SongAdapter(getBaseContext(), searchResults);
+                            SongAdapter songAdapter = new SongAdapter(getBaseContext(), searchResults, true);
                             songList.setAdapter(songAdapter);
                         }catch (JSONException e){
                             Log.d("ERROR","error => "+e.toString());

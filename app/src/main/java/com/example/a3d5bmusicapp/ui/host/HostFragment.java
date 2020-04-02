@@ -44,6 +44,7 @@ import com.example.a3d5bmusicapp.HostRoomActivity;
 import com.example.a3d5bmusicapp.LoginActivity;
 import com.example.a3d5bmusicapp.MainActivity;
 import com.example.a3d5bmusicapp.R;
+import com.example.a3d5bmusicapp.objects.Song;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -257,8 +258,8 @@ public class HostFragment extends Fragment {
         String host = getHostName();
         people.add(host);
 
-        ArrayList<String>queue = new ArrayList<>(1);
-        queue.add("");
+        ArrayList<Song>queue = new ArrayList<Song>();
+        queue.add(new Song("", "", ""));
 
         String host_name = getHostName();
         String host_token = msharedPreferences.getString("token","");
@@ -276,6 +277,7 @@ public class HostFragment extends Fragment {
             JSONObject jsonBody = new JSONObject();
             jsonBody.put("name", "Glisten playlist");
             final String requestBody = jsonBody.toString();
+
 
 
             String endpoint = "https://api.spotify.com/v1/users/" + userid + "/playlists";
@@ -384,6 +386,7 @@ public class HostFragment extends Fragment {
                 for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
                     HostRoomActivity.Room singleRoom = singleSnapshot.getValue(HostRoomActivity.Room.class);
                     int room_code = singleRoom.room_code;
+                    HostActivity.roomCode = String.valueOf(singleRoom.room_code);
                     int peopleNumber = singleRoom.people_num;
                     String userName = msharedPreferences.getString("user","");
                     textGenerateNumber.setText(String.valueOf(room_code));

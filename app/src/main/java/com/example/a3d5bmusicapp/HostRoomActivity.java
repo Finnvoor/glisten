@@ -24,6 +24,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.a3d5bmusicapp.objects.Song;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -61,7 +62,7 @@ public class HostRoomActivity extends AppCompatActivity {
         public ArrayList<String> people_name;
 
         public int song_num;
-        public ArrayList<String> song_queue;
+        public ArrayList<Song> song_queue;
 
         public String sessionName;
 
@@ -71,7 +72,7 @@ public class HostRoomActivity extends AppCompatActivity {
         public Room() {
         }
 
-        public Room(int code, String host, int people_num, int song_num, ArrayList<String>people, ArrayList<String> queue,String token,String id) {
+        public Room(int code, String host, int people_num, int song_num, ArrayList<String>people, ArrayList<Song> queue,String token,String id) {
             this.room_code = code;
             this.host = host;
             this.people_num = people_num;
@@ -104,8 +105,6 @@ public class HostRoomActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-
-        msharedPreferences = this.getSharedPreferences("SPOTIFY", 0);
         queue = Volley.newRequestQueue(this);
 
 

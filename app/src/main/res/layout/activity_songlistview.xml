@@ -36,4 +36,16 @@
             android:textStyle="bold">
         </TextView>
     </LinearLayout>
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"></View>
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="70dip"
+        android:layout_height="match_parent"
+        android:text="Add"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/bg_btn">
+    </Button>
 </LinearLayout>

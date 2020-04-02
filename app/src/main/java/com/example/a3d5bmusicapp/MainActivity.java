@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 isguestOrhost();
-                //String ishost = msharedPreferences.getString("ishost","");
+//                String ishost = msharedPreferences.getString("ishost","");
                 if(ishost == true){
                     Toast.makeText(MainActivity.this,"You already own one room.\n Can't be the guest.",Toast.LENGTH_SHORT).show();
                     return;

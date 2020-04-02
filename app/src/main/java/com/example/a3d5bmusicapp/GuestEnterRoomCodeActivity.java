@@ -98,6 +98,7 @@ public class GuestEnterRoomCodeActivity extends AppCompatActivity {
                         Toast.makeText(GuestEnterRoomCodeActivity.this,"Invalid room code\nPlease check the code!",Toast.LENGTH_SHORT).show();
                         return;
                     }*/
+                    HostActivity.roomCode = inputText;
                     Intent intent = new Intent(GuestEnterRoomCodeActivity.this,GuestActivity.class);
                     startActivity(intent);
                 }

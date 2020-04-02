@@ -26,7 +26,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class HostActivity extends AppCompatActivity {
-
+    public static String roomCode = "";
     private ImageButton new_session;
     private Button checkownroom;
 
