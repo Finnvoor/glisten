@@ -16,5 +16,16 @@
     <string name="access_code_val">0</string>
     <string name="current_session_val">Current Session Name</string>
     <string name="username_val">Username</string>
+    <string name="logo_image">logo image</string>
+    <string name="room_code">Room Code</string>
+    <string name="already_in_one_room_click_here">Already in one room? Click here!</string>
+    <string name="ask_host_to_share_the_group_code_with_you">Ask host to share the group code with you.</string>
+    <string name="enter">enter</string>
+    <string name="song">Song</string>
+    <string name="artist">Artist</string>
+    <string name="album">Album</string>
+    <string name="year">Year</string>
+    <string name="_0_00">0:00</string>
+    <string name="albumcover">albumCover</string>
 
 </resources>
