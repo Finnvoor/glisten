@@ -61,6 +61,7 @@ public class HostActivity extends AppCompatActivity {
                 String have = msharedPreferences.getString("host_own_room","");
                 if( have.compareTo("true") == 0) {
                     Intent intent = new Intent(HostActivity.this, HostRoomActivity.class);
+                    intent.putExtra("HOST_PERMISSION", "host");
                     startActivity(intent);
                 }else{
                     Toast.makeText(HostActivity.this,"You are not the host yet.\nCreate a new room first!",Toast.LENGTH_SHORT).show();

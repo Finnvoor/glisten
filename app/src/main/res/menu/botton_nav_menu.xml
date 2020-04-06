@@ -4,7 +4,7 @@
     <item
         android:id="@+id/navigation_host"
         android:icon="@drawable/ic_home"
-        android:title="Host" />
+        android:title="Home" />
     <item
         android:id="@+id/navigation_browse"
         android:icon="@drawable/ic_dashboard_black_24dp"

@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -62,7 +63,6 @@ import java.util.Map;
 import java.util.Random;
 
 
-
 public class HostFragment extends Fragment {
 
     //private HostViewModel hostViewModel;
@@ -99,7 +99,7 @@ public class HostFragment extends Fragment {
         protected void onSelectionChanged(int selStart, int selEnd) {
             super.onSelectionChanged(selStart, selEnd);
 
-            if(selStart==selEnd){
+            if (selStart == selEnd) {
                 setSelection(getText().length());
             }
 
@@ -123,16 +123,16 @@ public class HostFragment extends Fragment {
         msharedPreferences = getActivity().getSharedPreferences("SPOTIFY", 0);
         queue = Volley.newRequestQueue(getActivity());
 
-        String host_room_check = msharedPreferences.getString("host_own_room","");
-        if( host_room_check.compareTo("true") == 0){
-            String host_name = msharedPreferences.getString("user","");
+        String host_room_check = msharedPreferences.getString("host_own_room", "");
+        if (host_room_check.compareTo("true") == 0) {
+            String host_name = msharedPreferences.getString("user", "");
             getRoomInfor(host_name);
-        }else {
+        } else {
 
             int room_code = generateCode();
             textGenerateNumber.setText(String.valueOf(room_code));
             peopleNum.setText("1");
-            String userName = msharedPreferences.getString("user","");
+            String userName = msharedPreferences.getString("user", "");
             username.setText(userName);
             try {
                 addRoomtoFirebase(room_code);
@@ -147,13 +147,17 @@ public class HostFragment extends Fragment {
         closeRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String host_name = msharedPreferences.getString("user","");
-                deleteRoom(host_name);
-                String playlistid = msharedPreferences.getString("playlistid","");
-                deleteplaylist(playlistid);
-                getActivity().finish();
+                String permission = getActivity().getIntent().getStringExtra("HOST_PERMISSION");
+                if (permission.contentEquals("host")) {
+                    String host_name = msharedPreferences.getString("user", "");
+                    deleteRoom(host_name);
+                    String playlistid = msharedPreferences.getString("playlistid", "");
+                    deleteplaylist(playlistid);
+                    getActivity().finish();
+                }
             }
         });
+
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,7 +172,7 @@ public class HostFragment extends Fragment {
         });
 
 
-        if (sessionName.getSelectionEnd() == sessionName.getSelectionStart()){
+        if (sessionName.getSelectionEnd() == sessionName.getSelectionStart()) {
             sessionName.setSelection(sessionName.getText().length());
         }
         sessionName.addTextChangedListener(new TextWatcher() {
@@ -184,7 +188,7 @@ public class HostFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                String host_name =getHostName();
+                String host_name = getHostName();
                 update_session_name(editable.toString(), host_name);
             }
         });
@@ -207,10 +211,9 @@ public class HostFragment extends Fragment {
     }
 
     private void deleteplaylist(String playlistid) {
-        String endpoint = "https://api.spotify.com/v1/playlists/"  + playlistid + "/followers";
-        JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.DELETE, endpoint,null,
-                new Response.Listener<JSONObject>()
-                {
+        String endpoint = "https://api.spotify.com/v1/playlists/" + playlistid + "/followers";
+        JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.DELETE, endpoint, null,
+                new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         //Log.d("Response", response.toString());
@@ -219,17 +222,16 @@ public class HostFragment extends Fragment {
                         //Log.d("Response", response.substring(2000, 3000));
                     }
                 },
-                new Response.ErrorListener()
-                {
+                new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.d("ERROR","error => "+error.toString());
+                        Log.d("ERROR", "error => " + error.toString());
                     }
                 }
         ) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String>  params = new HashMap<String, String>();
+                Map<String, String> params = new HashMap<String, String>();
                 params.put("Authorization", "Bearer " + msharedPreferences.getString("token", ""));
 
                 return params;
@@ -248,90 +250,89 @@ public class HostFragment extends Fragment {
 
     }
 
-    private int generateCode(){
+    private int generateCode() {
         final Random myRandom = new Random();
-        return  myRandom.nextInt(1000000);
+        return myRandom.nextInt(1000000);
     }
 
-    private  void addRoomtoFirebase(int room_code) throws JSONException {
-        ArrayList<String>people = new ArrayList<>(1);
+    private void addRoomtoFirebase(int room_code) throws JSONException {
+        ArrayList<String> people = new ArrayList<>(1);
         String host = getHostName();
         people.add(host);
 
-        ArrayList<Song>queue = new ArrayList<Song>();
+        ArrayList<Song> queue = new ArrayList<Song>();
         queue.add(new Song("", "", ""));
 
         String host_name = getHostName();
-        String host_token = msharedPreferences.getString("token","");
-        String userid = msharedPreferences.getString("user_id","");
-        Log.d("userid",userid);
-        createPlaylist(host_token,userid);
-        String id = msharedPreferences.getString("playlistid","");
-        HostRoomActivity.Room room = new HostRoomActivity.Room(room_code,host_name,1,0,people,queue,host_token,id);
+        String host_token = msharedPreferences.getString("token", "");
+        String userid = msharedPreferences.getString("user_id", "");
+        Log.d("userid", userid);
+        createPlaylist(host_token, userid);
+        String id = msharedPreferences.getString("playlistid", "");
+        HostRoomActivity.Room room = new HostRoomActivity.Room(room_code, host_name, 1, 0, people, queue, host_token, id);
 
         DatabaseReference myRef = database.getReference(String.valueOf(room.room_code));
         ((DatabaseReference) myRef).setValue(room);
     }
 
     private void createPlaylist(String host_token, String userid) throws JSONException {
-            JSONObject jsonBody = new JSONObject();
-            jsonBody.put("name", "Glisten playlist");
-            final String requestBody = jsonBody.toString();
+        JSONObject jsonBody = new JSONObject();
+        jsonBody.put("name", "Glisten playlist");
+        final String requestBody = jsonBody.toString();
 
 
-
-            String endpoint = "https://api.spotify.com/v1/users/" + userid + "/playlists";
-            StringRequest postRequest = new StringRequest(Request.Method.POST, endpoint,
-                    new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            //Log.d("Response_playlist", response);
-                            try {
-                                JSONObject obj = new JSONObject(response);
-                                String playlist_id = obj.getString("id");
-                                Log.d("playlistid", playlist_id);
-                                editor = getActivity().getSharedPreferences("SPOTIFY", 0).edit();
-                                editor.putString("playlistid",playlist_id);
-                                editor.apply();
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-
+        String endpoint = "https://api.spotify.com/v1/users/" + userid + "/playlists";
+        StringRequest postRequest = new StringRequest(Request.Method.POST, endpoint,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        //Log.d("Response_playlist", response);
+                        try {
+                            JSONObject obj = new JSONObject(response);
+                            String playlist_id = obj.getString("id");
+                            Log.d("playlistid", playlist_id);
+                            editor = getActivity().getSharedPreferences("SPOTIFY", 0).edit();
+                            editor.putString("playlistid", playlist_id);
+                            editor.apply();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
-                    },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Log.d("ERROR", "error => " + error.toString());
-                        }
+
                     }
-            ) {
-                @Override
-                public Map<String, String> getHeaders() throws AuthFailureError {
-                    Map<String, String> params = new HashMap<String, String>();
-                    params.put("Authorization", "Bearer " + host_token);
-                    params.put("Accept", "application/json");
-
-                    return params;
-                }
-
-                @Override
-                public String getBodyContentType() {
-                    return "application/json; charset=utf-8";
-                }
-
-                @Override
-                public byte[] getBody() throws AuthFailureError {
-                    try {
-                        return requestBody == null ? null : requestBody.getBytes("utf-8");
-                    } catch (UnsupportedEncodingException uee) {
-                        VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", requestBody, "utf-8");
-                        return null;
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("ERROR", "error => " + error.toString());
                     }
                 }
-            };
-            queue.add(postRequest);
-        }
+        ) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Authorization", "Bearer " + host_token);
+                params.put("Accept", "application/json");
+
+                return params;
+            }
+
+            @Override
+            public String getBodyContentType() {
+                return "application/json; charset=utf-8";
+            }
+
+            @Override
+            public byte[] getBody() throws AuthFailureError {
+                try {
+                    return requestBody == null ? null : requestBody.getBytes("utf-8");
+                } catch (UnsupportedEncodingException uee) {
+                    VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", requestBody, "utf-8");
+                    return null;
+                }
+            }
+        };
+        queue.add(postRequest);
+    }
 
 
     private String getHostName() {
@@ -359,36 +360,36 @@ public class HostFragment extends Fragment {
         });
     }*/
 
-    private void deleteRoom(String host_name){
+    private void deleteRoom(String host_name) {
         Query applesQuery = database.getReference().orderByChild("host").equalTo(host_name);
 
         applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
+                for (DataSnapshot appleSnapshot : dataSnapshot.getChildren()) {
                     appleSnapshot.getRef().removeValue();
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Log.e("onCancelled","error");
+                Log.e("onCancelled", "error");
             }
         });
     }
 
-    private void getRoomInfor(String hostname){
+    private void getRoomInfor(String hostname) {
         Query applesQuery = database.getReference().orderByChild("host").equalTo(hostname);
 
         applesQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
+                for (DataSnapshot singleSnapshot : dataSnapshot.getChildren()) {
                     HostRoomActivity.Room singleRoom = singleSnapshot.getValue(HostRoomActivity.Room.class);
                     int room_code = singleRoom.room_code;
                     HostActivity.roomCode = String.valueOf(singleRoom.room_code);
                     int peopleNumber = singleRoom.people_num;
-                    String userName = msharedPreferences.getString("user","");
+                    String userName = msharedPreferences.getString("user", "");
                     textGenerateNumber.setText(String.valueOf(room_code));
                     peopleNum.setText(String.valueOf(peopleNumber));
                     username.setText(userName);
@@ -401,7 +402,7 @@ public class HostFragment extends Fragment {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Log.e("onCancelled","error");
+                Log.e("onCancelled", "error");
             }
         });
 
@@ -410,34 +411,32 @@ public class HostFragment extends Fragment {
 
     private void getUserAvatar() {
         String endpoint = "https://api.spotify.com/v1/me";
-        JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, endpoint,null,
-                new Response.Listener<JSONObject>()
-                {
+        JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, endpoint, null,
+                new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         //Log.d("Response", response.toString());
                         try {
                             String image = response.getJSONArray("images").getJSONObject(0).getString("url");
                             Glide.with(getActivity()).load(image).into(userAvatar);
-                        }catch (JSONException e){
-                            Log.d("ERROR","error => "+e.toString());
+                        } catch (JSONException e) {
+                            Log.d("ERROR", "error => " + e.toString());
                         }
 
                         //Log.d("Response", response.substring(1000, 2000));
                         //Log.d("Response", response.substring(2000, 3000));
                     }
                 },
-                new Response.ErrorListener()
-                {
+                new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.d("ERROR","error => "+error.toString());
+                        Log.d("ERROR", "error => " + error.toString());
                     }
                 }
         ) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String, String>  params = new HashMap<String, String>();
+                Map<String, String> params = new HashMap<String, String>();
                 params.put("Authorization", "Bearer " + msharedPreferences.getString("token", ""));
 
                 return params;
@@ -459,16 +458,17 @@ public class HostFragment extends Fragment {
     }
 
 
-    private void update_session_name(String new_session_name, String host_name){
+    private void update_session_name(String new_session_name, String host_name) {
         Query applesQuery = database.getReference().orderByChild("host").equalTo(host_name);
 
         applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String room_code = "";
-                for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()) {
+                for (DataSnapshot singleSnapshot : dataSnapshot.getChildren()) {
                     HostRoomActivity.Room singleRoom = singleSnapshot.getValue(HostRoomActivity.Room.class);
-                    room_code = String.valueOf(singleRoom.room_code);;
+                    room_code = String.valueOf(singleRoom.room_code);
+                    ;
                     database.getReference(room_code).child("sessionName").setValue(new_session_name);
                 }
 
@@ -476,7 +476,7 @@ public class HostFragment extends Fragment {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Log.e("onCancelled","error");
+                Log.e("onCancelled", "error");
             }
         });
     }

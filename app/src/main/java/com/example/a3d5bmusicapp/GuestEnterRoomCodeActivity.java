@@ -99,7 +99,8 @@ public class GuestEnterRoomCodeActivity extends AppCompatActivity {
                         return;
                     }*/
                     HostActivity.roomCode = inputText;
-                    Intent intent = new Intent(GuestEnterRoomCodeActivity.this,GuestActivity.class);
+                    Intent intent = new Intent(GuestEnterRoomCodeActivity.this,HostRoomActivity.class);
+                    intent.putExtra("HOST_PERMISSION",  "guest");
                     startActivity(intent);
                 }
 
